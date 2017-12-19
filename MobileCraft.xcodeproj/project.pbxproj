@@ -13,6 +13,7 @@
 		379B0FBA1FE94E8E00140085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FB91FE94E8E00140085 /* Assets.xcassets */; };
 		379B0FBD1FE94E8E00140085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FBB1FE94E8E00140085 /* LaunchScreen.storyboard */; };
 		379B0FC01FE94E8E00140085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FBF1FE94E8E00140085 /* main.m */; };
+		379B0FCF1FE9591F00140085 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FCE1FE9591F00140085 /* Shader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		379B0FBC1FE94E8E00140085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379B0FBE1FE94E8E00140085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379B0FBF1FE94E8E00140085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		379B0FCD1FE9591F00140085 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		379B0FCE1FE9591F00140085 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				379B0FB61FE94E8E00140085 /* Main.storyboard */,
 				379B0FB91FE94E8E00140085 /* Assets.xcassets */,
 				379B0FBB1FE94E8E00140085 /* LaunchScreen.storyboard */,
+				379B0FCD1FE9591F00140085 /* Shader.h */,
+				379B0FCE1FE9591F00140085 /* Shader.m */,
 				379B0FBE1FE94E8E00140085 /* Info.plist */,
 				379B0FBF1FE94E8E00140085 /* main.m */,
 			);
@@ -144,6 +149,7 @@
 			files = (
 				379B0FB51FE94E8E00140085 /* ViewController.m in Sources */,
 				379B0FC01FE94E8E00140085 /* main.m in Sources */,
+				379B0FCF1FE9591F00140085 /* Shader.m in Sources */,
 				379B0FB21FE94E8D00140085 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

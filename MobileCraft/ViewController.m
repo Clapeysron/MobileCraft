@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) EAGLContext *context;
+
 @end
 
 @implementation ViewController
@@ -17,8 +19,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    if (!self.context) {
+        NSLog(@"Failed to create ES context");
+    }
+    
+    GLKView *view = (GLKView *) self.view;
+    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    [self setupGL];
 }
 
+- (void)setupGL {
+    [EAGLContext setCurrentContext:self.context];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
