@@ -14,6 +14,20 @@
 		379B0FBD1FE94E8E00140085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FBB1FE94E8E00140085 /* LaunchScreen.storyboard */; };
 		379B0FC01FE94E8E00140085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FBF1FE94E8E00140085 /* main.m */; };
 		379B0FCF1FE9591F00140085 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FCE1FE9591F00140085 /* Shader.m */; };
+		37BA03F01FE97D6600FE4785 /* Block.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E21FE97D6600FE4785 /* Block.fs */; };
+		37BA03F11FE97D6600FE4785 /* Skybox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E31FE97D6600FE4785 /* Skybox.vs */; };
+		37BA03F21FE97D6600FE4785 /* Gui.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E41FE97D6600FE4785 /* Gui.fs */; };
+		37BA03F31FE97D6600FE4785 /* Depth_debug.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E51FE97D6600FE4785 /* Depth_debug.fs */; };
+		37BA03F41FE97D6600FE4785 /* Sunlight.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E61FE97D6600FE4785 /* Sunlight.vs */; };
+		37BA03F51FE97D6600FE4785 /* Depth.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E71FE97D6600FE4785 /* Depth.fs */; };
+		37BA03F61FE97D6600FE4785 /* Steve.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E81FE97D6600FE4785 /* Steve.vs */; };
+		37BA03F71FE97D6600FE4785 /* Sunlight.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E91FE97D6600FE4785 /* Sunlight.fs */; };
+		37BA03F81FE97D6600FE4785 /* Depth.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EA1FE97D6600FE4785 /* Depth.vs */; };
+		37BA03F91FE97D6600FE4785 /* Steve.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EB1FE97D6600FE4785 /* Steve.fs */; };
+		37BA03FA1FE97D6600FE4785 /* Skybox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EC1FE97D6600FE4785 /* Skybox.fs */; };
+		37BA03FB1FE97D6600FE4785 /* Block.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03ED1FE97D6600FE4785 /* Block.vs */; };
+		37BA03FC1FE97D6600FE4785 /* Depth_debug.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */; };
+		37BA03FD1FE97D6600FE4785 /* Gui.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EF1FE97D6600FE4785 /* Gui.vs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +43,20 @@
 		379B0FBF1FE94E8E00140085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		379B0FCD1FE9591F00140085 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		379B0FCE1FE9591F00140085 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		37BA03E21FE97D6600FE4785 /* Block.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Block.fs; sourceTree = "<group>"; };
+		37BA03E31FE97D6600FE4785 /* Skybox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Skybox.vs; sourceTree = "<group>"; };
+		37BA03E41FE97D6600FE4785 /* Gui.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gui.fs; sourceTree = "<group>"; };
+		37BA03E51FE97D6600FE4785 /* Depth_debug.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth_debug.fs; sourceTree = "<group>"; };
+		37BA03E61FE97D6600FE4785 /* Sunlight.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sunlight.vs; sourceTree = "<group>"; };
+		37BA03E71FE97D6600FE4785 /* Depth.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth.fs; sourceTree = "<group>"; };
+		37BA03E81FE97D6600FE4785 /* Steve.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Steve.vs; sourceTree = "<group>"; };
+		37BA03E91FE97D6600FE4785 /* Sunlight.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sunlight.fs; sourceTree = "<group>"; };
+		37BA03EA1FE97D6600FE4785 /* Depth.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth.vs; sourceTree = "<group>"; };
+		37BA03EB1FE97D6600FE4785 /* Steve.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Steve.fs; sourceTree = "<group>"; };
+		37BA03EC1FE97D6600FE4785 /* Skybox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Skybox.fs; sourceTree = "<group>"; };
+		37BA03ED1FE97D6600FE4785 /* Block.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Block.vs; sourceTree = "<group>"; };
+		37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth_debug.vs; sourceTree = "<group>"; };
+		37BA03EF1FE97D6600FE4785 /* Gui.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gui.vs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +100,30 @@
 				379B0FCE1FE9591F00140085 /* Shader.m */,
 				379B0FBE1FE94E8E00140085 /* Info.plist */,
 				379B0FBF1FE94E8E00140085 /* main.m */,
+				37BA03E11FE97D6600FE4785 /* shader */,
 			);
 			path = MobileCraft;
+			sourceTree = "<group>";
+		};
+		37BA03E11FE97D6600FE4785 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				37BA03E21FE97D6600FE4785 /* Block.fs */,
+				37BA03E31FE97D6600FE4785 /* Skybox.vs */,
+				37BA03E41FE97D6600FE4785 /* Gui.fs */,
+				37BA03E51FE97D6600FE4785 /* Depth_debug.fs */,
+				37BA03E61FE97D6600FE4785 /* Sunlight.vs */,
+				37BA03E71FE97D6600FE4785 /* Depth.fs */,
+				37BA03E81FE97D6600FE4785 /* Steve.vs */,
+				37BA03E91FE97D6600FE4785 /* Sunlight.fs */,
+				37BA03EA1FE97D6600FE4785 /* Depth.vs */,
+				37BA03EB1FE97D6600FE4785 /* Steve.fs */,
+				37BA03EC1FE97D6600FE4785 /* Skybox.fs */,
+				37BA03ED1FE97D6600FE4785 /* Block.vs */,
+				37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */,
+				37BA03EF1FE97D6600FE4785 /* Gui.vs */,
+			);
+			path = shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +184,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BA03FC1FE97D6600FE4785 /* Depth_debug.vs in Resources */,
+				37BA03F81FE97D6600FE4785 /* Depth.vs in Resources */,
+				37BA03F61FE97D6600FE4785 /* Steve.vs in Resources */,
+				37BA03F41FE97D6600FE4785 /* Sunlight.vs in Resources */,
+				37BA03F21FE97D6600FE4785 /* Gui.fs in Resources */,
+				37BA03FA1FE97D6600FE4785 /* Skybox.fs in Resources */,
+				37BA03F31FE97D6600FE4785 /* Depth_debug.fs in Resources */,
+				37BA03FB1FE97D6600FE4785 /* Block.vs in Resources */,
 				379B0FBD1FE94E8E00140085 /* LaunchScreen.storyboard in Resources */,
+				37BA03FD1FE97D6600FE4785 /* Gui.vs in Resources */,
 				379B0FBA1FE94E8E00140085 /* Assets.xcassets in Resources */,
+				37BA03F51FE97D6600FE4785 /* Depth.fs in Resources */,
+				37BA03F91FE97D6600FE4785 /* Steve.fs in Resources */,
+				37BA03F11FE97D6600FE4785 /* Skybox.vs in Resources */,
+				37BA03F71FE97D6600FE4785 /* Sunlight.fs in Resources */,
+				37BA03F01FE97D6600FE4785 /* Block.fs in Resources */,
 				379B0FB81FE94E8E00140085 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "Shader.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    Shader *Block_Shader;
+}
 
 @property (strong, nonatomic) EAGLContext *context;
 
@@ -31,6 +34,12 @@
 
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
+    Block_Shader = [[Shader alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"Block" ofType:@"vs"] fs:[[NSBundle mainBundle] pathForResource:@"Block" ofType:@"fs"]];
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
 }
 
 - (void)didReceiveMemoryWarning {

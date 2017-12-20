@@ -13,7 +13,6 @@
 - (id) init {
     self = [super init];
     if(self) {
-        
     }
     return self;
 }
@@ -83,7 +82,33 @@
     glUniform2f(glGetUniformLocation(ID, [name UTF8String]), x, y);
 }
 
-- (void)setVec3:
+- (void)setVec3:(NSString *)name value:(GLKVector3)value {
+        glUniform3fv(glGetUniformLocation(ID, [name UTF8String]), 1, value.v);
+}
+
+- (void)setVec3:(NSString *)name x:(float)x y:(float)y z:(float)z {
+    glUniform3f(glGetUniformLocation(ID, [name UTF8String]), x, y, z);
+}
+
+- (void)setVec4:(NSString *)name value:(GLKVector3)value {
+    glUniform4fv(glGetUniformLocation(ID, [name UTF8String]), 1, value.v);
+}
+
+- (void)setVec4:(NSString *)name x:(float)x y:(float)y z:(float)z w:(float)w {
+    glUniform4f(glGetUniformLocation(ID, [name UTF8String]), x, y, z, w);
+}
+
+- (void)setMat2:(NSString *)name value:(GLKMatrix2)value {
+    glUniformMatrix2fv(glGetUniformLocation(ID, [name UTF8String]), 1, GL_FALSE, value.m);
+}
+
+- (void)setMat3:(NSString *)name value:(GLKMatrix3)value {
+    glUniformMatrix3fv(glGetUniformLocation(ID, [name UTF8String]), 1, GL_FALSE, value.m);
+}
+
+- (void)setMat4:(NSString *)name value:(GLKMatrix4)value {
+    glUniformMatrix4fv(glGetUniformLocation(ID, [name UTF8String]), 1, GL_FALSE, value.m);
+}
 
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
 {
