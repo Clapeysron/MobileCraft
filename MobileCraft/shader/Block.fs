@@ -1,6 +1,6 @@
 precision mediump float;
 uniform sampler2D texture_pic;
-uniform sampler2D shadowMap;
+//uniform sampler2D shadowMap;
 
 varying vec3 FragPos;
 varying vec3 Normal;
@@ -13,7 +13,6 @@ struct Sunlight {
 };
 
 uniform Sunlight sunlight;
-uniform vec3 chosen_block_pos;
 
 //float ShadowCalculation(vec4 fragPosLightSpace)
 //{
@@ -47,12 +46,12 @@ uniform vec3 chosen_block_pos;
 //    return shadow;
 //}
 
-float isChosen(vec3 FragPos) {
-    if ( FragPos.x < chosen_block_pos.x || FragPos.x > chosen_block_pos.x + 1.0 ||
-         FragPos.y < chosen_block_pos.y || FragPos.y > chosen_block_pos.y + 1.0 ||
-         FragPos.z < chosen_block_pos.z || FragPos.z > chosen_block_pos.z + 1.0 ) return 1.0;
-    return 1.4;
-}
+//float isChosen(vec3 FragPos) {
+//    if ( FragPos.x < chosen_block_pos.x || FragPos.x > chosen_block_pos.x + 1.0 ||
+//         FragPos.y < chosen_block_pos.y || FragPos.y > chosen_block_pos.y + 1.0 ||
+//         FragPos.z < chosen_block_pos.z || FragPos.z > chosen_block_pos.z + 1.0 ) return 1.0;
+//    return 1.4;
+//}
 
 void main()
 {
@@ -62,8 +61,8 @@ void main()
     vec3 lightDir = normalize(-sunlight.lightDirection);
     float diff = max(dot(lightDir, norm), 0.0);
     vec3 diffuse = sunlight.ambient * diff * 3.0;
-    float isChosen = isChosen(FragPos);
-    
+    //float isChosen = isChosen(FragPos);
+
     //float shadow = ShadowCalculation(FragPosLightSpace);
     vec3 result;
     if (alpha == 1.0) {

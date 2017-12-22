@@ -31,9 +31,9 @@
     ID = glCreateProgram();
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
-    glBindAttribLocation(ID, GLKVertexAttribPosition, "aPos");
-    glBindAttribLocation(ID, GLKVertexAttribNormal, "aNormal");
-    glBindAttribLocation(ID, GLKVertexAttribTexCoord0, "aTexCoord");
+    glBindAttribLocation(ID, 0, "aPos");
+    glBindAttribLocation(ID, 1, "aNormal");
+    glBindAttribLocation(ID, 2, "aTexCoord");
     if(![self linkProgram:ID]) {
         NSLog(@"Failed to link program: %d", ID);
         if (vertex) {

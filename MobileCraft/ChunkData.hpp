@@ -20,6 +20,7 @@
 #include <map>
 #include "Block.hpp"
 #include "game_settings.h"
+#include <OpenGLES/ES3/gl.h>
 
 #define PERSISTENCE 0.1f  //(0.0f, 1.0f)
 #define OCTAVES 5
@@ -165,7 +166,6 @@ public:
     char removeBlock(glm::vec3 cameraPos, glm::vec3 cameraFront);
     glm::vec3 accessibleBlock(glm::vec3 cameraPos, glm::vec3 cameraFront);
     static void addTransQuads(int dir, int x, int y, int z);
-private:
     Chunk *curChunk;
     SubChunk *curSubChunk;
     Chunk *Chunks[2*RADIUS+1][2*RADIUS+1];
@@ -179,6 +179,6 @@ private:
     bool floodFill(int y, int x, int z); //called by getRenderingSubChunks，TO-DO：face-wall culling
     void calcFrustumPlane(glm::mat4 view, glm::mat4 projection);
     //void drawTransQuads(glm::vec3 cameraPos, Shader& Block_Shader);
-    //void drawNormQuads(glm::vec3 cameraPos, Shader& Block_Shader);
+    void drawNormQuads(float cameraPos_y, float cameraPos_x, float cameraPos_z);
 };
 #endif /* ChunkData_hpp */

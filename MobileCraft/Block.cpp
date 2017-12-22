@@ -56,61 +56,37 @@ float vertex[QUAD_SIZE/VERTEX_SIZE][QUAD_SIZE] = {
 std::vector<float> Quads;
 
 Block::Block() {
-//    glGenVertexArrays(1, &VAO);
-//    glGenBuffers(1, &VBO);
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
 }
 
 void Block::updateBuffer(bool isNew, float *vertex, unsigned long size) {
-//    glBindVertexArray(VAO);
-//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//    if(isNew) {
-//        glBufferData(GL_ARRAY_BUFFER, size*sizeof(float), vertex, GL_STATIC_DRAW);
-//        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)0);
-//        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)(3*sizeof(float)));
-//        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)(6*sizeof(float)));
-//    }
-//    else {
-//        //glBufferData(GL_ARRAY_BUFFER, size*sizeof(float), vertices, GL_STATIC_DRAW);
-//        //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-//        glBufferSubData(GL_ARRAY_BUFFER, 0, size*sizeof(float), vertex);
-//        /*void * ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-//        memcpy(ptr, vertices, sizeof(vertices));
-//        glUnmapBuffer(GL_ARRAY_BUFFER);*/
-//    }
-//    glEnableVertexAttribArray(0);
-//    glEnableVertexAttribArray(1);
-//    glEnableVertexAttribArray(2);
-//    glBindVertexArray(VAO);
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    if(isNew) {
+        glBufferData(GL_ARRAY_BUFFER, size*sizeof(float), vertex, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)0);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)(3*sizeof(float)));
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VERTEX_SIZE * sizeof(float), (void*)(6*sizeof(float)));
+    }
+    else {
+        //glBufferData(GL_ARRAY_BUFFER, size*sizeof(float), vertices, GL_STATIC_DRAW);
+        //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, size*sizeof(float), vertex);
+        /*void * ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr, vertices, sizeof(vertices));
+        glUnmapBuffer(GL_ARRAY_BUFFER);*/
+    }
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+    glBindVertexArray(VAO);
 }
 
 Block::~Block() {
-//    glDeleteVertexArrays(1, &VAO);
-//    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
 }
-
-//void Block::draw(glm::vec3 position, glm::mat4 view, glm::mat4 projection, char type) {
-//    Block_Shader.use();
-//    glm::mat4 model(1);
-//    Block_Shader.setMat4("view", view);
-//    Block_Shader.setMat4("projection", projection);
-//    model = glm::translate(model, position);
-//    Block_Shader.setMat4("model", model);
-//    glBindVertexArray(VAO);
-//    if (type != 0) {
-//        glDrawArrays(GL_TRIANGLE_STRIP, 0, sizeof(vertex)/(VERTEX_SIZE*sizeof(float)));
-//    }
-//}
-
-//void Block::test(glm::mat4 view, glm::mat4 projection) {
-//    Block_Shader.use();
-//    glm::mat4 model(1);
-//    Block_Shader.setMat4("view", view);
-//    Block_Shader.setMat4("projection", projection);
-//    //model = glm::translate(model, position);
-//    Block_Shader.setMat4("model", model);
-//    glBindVertexArray(VAO);
-//    glDrawArrays(GL_TRIANGLES, 0, Quads.size()/VERTEX_SIZE);
-// }
 
 unsigned int Block::getVAO(){
     return VAO;

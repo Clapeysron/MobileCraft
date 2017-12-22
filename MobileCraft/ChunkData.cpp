@@ -1021,7 +1021,7 @@ void VisibleChunks::getRenderingSubChunks(int y, int x, int z){
     clearPathHistory(); //清空上一帧的广搜路径
     
     //scanQueue.push(curSubChunk); //当前所在区块入队伍
-    if(floodFill(y, x, z))
+    if(true)//floodFill(y, x, z))
     {
         renderQueue.push(curSubChunk);
         curSubChunk->setPathHistory(ALL_DIR);
@@ -1054,8 +1054,9 @@ void VisibleChunks::getRenderingSubChunks(int y, int x, int z){
             //cout<<scanQueue.size()<<endl;
             tmp = scanQueue.front();
             tmp->adjBlocksEnqueue();
-            if(tmp->Quads.size())
+            if(tmp->Quads.size()) {
                 renderQueue.push(tmp);
+            }
             scanQueue.pop();
         }
     } //洪水填充，区块非封闭且非面壁时，周围六个方块无条件入队。
@@ -1233,18 +1234,18 @@ void SubChunk::set_texture(float* tmp, char type, int dir) {
     }
 }
 
-//void VisibleChunks::drawNormQuads(glm::vec3 cameraPos, Shader& Block_Shader){
-//    SubChunk *tmp;
-//    getRenderingSubChunks((int)cameraPos.y, (int)cameraPos.x, (int)cameraPos.z);//float为负数时候怎么rounding？？？？
-//    for(int i = 0; i < renderQueue.size(); i++)
-//    {
-//        tmp = renderQueue.front();
-//        glBindVertexArray(tmp->bufferObject.getVAO());
-//        glDrawArrays(GL_TRIANGLES, 0, (int)(tmp->Quads.size()/VERTEX_SIZE));
-//        renderQueue.pop();
-//        renderQueue.push(tmp);
-//    }
-//}
+void VisibleChunks::drawNormQuads(float cameraPos_y, float cameraPos_x, float cameraPos_z){
+    SubChunk *tmp;
+    getRenderingSubChunks((int)cameraPos_y, (int)cameraPos_x, (int)cameraPos_z);//float为负数时候怎么rounding？？？？
+    for(int i = 0; i < renderQueue.size(); i++)
+    {
+        tmp = renderQueue.front();
+        glBindVertexArray(tmp->bufferObject.getVAO());
+        glDrawArrays(GL_TRIANGLES, 0, (int)(tmp->Quads.size()/VERTEX_SIZE));
+        renderQueue.pop();
+        renderQueue.push(tmp);
+    }
+}
 
 //void VisibleChunks::drawTransQuads(glm::vec3 cameraPos, Shader& Block_Shader){
 //    Block *tmp = new Block();

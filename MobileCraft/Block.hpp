@@ -11,6 +11,7 @@
 
 #include "game_settings.h"
 #include <vector>
+#include <OpenGLES/ES3/gl.h>
 #include "glm/glm.hpp"
 
 class Block {
