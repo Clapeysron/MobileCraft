@@ -18,44 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="cNa-FQ-bLa">
-                                <rect key="frame" x="126" y="186" width="53" height="28"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNq-Fz-o8E">
+                                <rect key="frame" x="56" y="184" width="160" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="2N2-4e-Ip6" appends="YES" id="80s-TL-SwH"/>
-                                </connections>
                             </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="p8a-uP-85d">
-                                <rect key="frame" x="126" y="300" width="53" height="28"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button.png" translatesAutoresizingMaskIntoConstraints="NO" id="gvm-0W-dqZ">
+                                <rect key="frame" x="103" y="231" width="66" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ffL-ow-O3J" appends="YES" id="XJL-d3-f6F"/>
-                                </connections>
                             </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="rD5-5z-l0b">
-                                <rect key="frame" x="77" y="235" width="27" height="45"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jump.png" translatesAutoresizingMaskIntoConstraints="NO" id="4nD-7t-qkW">
+                                <rect key="frame" x="700" y="267" width="41" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="iyI-uk-p3h" appends="YES" id="TOW-SP-RKq"/>
-                                </connections>
-                            </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="3eo-xM-dzc">
-                                <rect key="frame" x="200" y="235" width="27" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ivs-tN-Wc8" appends="YES" id="0GK-Vg-28W"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="left_arrow" destination="rD5-5z-l0b" id="ZY6-qh-5rW"/>
+                        <outlet property="jumpButton" destination="4nD-7t-qkW" id="8YO-iZ-h5L"/>
+                        <outlet property="moveButton" destination="gvm-0W-dqZ" id="qhP-cS-XNl"/>
+                        <outlet property="moveRange" destination="KNq-Fz-o8E" id="F5r-ua-lA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -68,12 +50,12 @@
                 <tapGestureRecognizer id="ivs-tN-Wc8"/>
                 <tapGestureRecognizer id="ffL-ow-O3J"/>
             </objects>
+            <point key="canvasLocation" x="32.512315270935964" y="40.799999999999997"/>
         </scene>
     </scenes>
     <resources>
-        <image name="down_arrow.png" width="147" height="92"/>
-        <image name="left_arrow.png" width="88" height="140"/>
-        <image name="right_arrow.png" width="88" height="140"/>
-        <image name="up_arrow.png" width="147" height="92"/>
+        <image name="button.png" width="198" height="198"/>
+        <image name="jump.png" width="126" height="126"/>
+        <image name="line.png" width="710" height="712"/>
     </resources>
 </document>

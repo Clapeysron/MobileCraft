@@ -1,4 +1,4 @@
-precision mediump float;
+precision highp float;
 attribute vec3 aPos;
 varying vec2 SkyTexCoords;
 varying vec3 starPos;

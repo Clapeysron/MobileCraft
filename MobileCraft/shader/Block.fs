@@ -1,4 +1,4 @@
-precision mediump float;
+precision highp float;
 uniform sampler2D texture_pic;
 uniform sampler2D skybox;
 
@@ -33,8 +33,9 @@ void main()
     vec3 lightDir = normalize(-sunlight.lightDirection);
     float diff = max(dot(lightDir, norm), 0.0);
     vec3 diffuse;
-    if (shadow == -1.0) {
-        diffuse = (sunlight.lightambient-vec3(0.095))*10.0;
+    if (shadow < 0.0) {
+        //diffuse = sunlight.lightambient * diff;
+        diffuse = ((sunlight.lightambient.x-0.095)*10.0 > 1.0 ? vec3(1.0) : vec3((sunlight.lightambient.x-0.095)*10.0));
     } else {
         diffuse = sunlight.lightambient * diff;
     }
@@ -54,10 +55,10 @@ void main()
         // Without Shadow mapping
         //result = (sunlight.ambient + diffuse) * isChosen * color;
         // With Shadow mapping
-        vec3 sun_bright = 1.1 * diffuse;
+        vec3 sun_bright = 1.0 * diffuse;
         vec3 point_bright = point_light_ambient * brightness;
         float tmpShadow = shadow;
-        if(tmpShadow == -1.0) tmpShadow = 1.0;
+        if(tmpShadow < 0.0) tmpShadow = 1.0;
         else if(tmpShadow > 1.0) tmpShadow = 1.0;
         else tmpShadow = 0.7*tmpShadow + 0.3;
         result = tmpShadow * (sunlight.ambient + mix(sun_bright, point_bright, point_bright.r/(sunlight.lightambient.r+point_bright.r)) ) * color;
@@ -70,7 +71,7 @@ void main()
     float fogFactor = 1.0/exp((dist*fogDensity)*(dist*fogDensity));
     fogFactor = clamp(fogFactor, 0.0, 1.0);
     vec2 SkyTexCoords;
-    if (shadow == -1.0) {
+    if (shadow < 0.0) {
         SkyTexCoords = vec2(DayPos, 0.42);
     } else {
         SkyTexCoords = vec2(DayPos, 0.55);

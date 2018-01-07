@@ -29,6 +29,14 @@
     float deltaTime;
     Shader *Block_Shader;
     Shader *Skybox_Shader;
+    glm::vec3 lightDirection;
+    bool isDaylight;
+    float x_v;
+    float y_v;
+    UITouch * jumpFinger;
+    UITouch * moveFinger;
+    UITouch * dragFinger;
+    
     GLKVector3 Sun_Moon_light;
     GLKVector3 Ambient_light;
     GLuint Block_texure;
@@ -36,17 +44,17 @@
     GLuint Sky_texture;
     GLuint Skybox_VAO;
     GLuint Skybox_VBO;
+    bool moveFlag;
 }
 @property (strong, nonatomic) EAGLContext *context;
-@property (weak, nonatomic) IBOutlet UIImageView *left_arrow;
+
+@property (strong, nonatomic) IBOutlet UIImageView *moveButton;
+@property (strong, nonatomic) IBOutlet UIImageView *jumpButton;
+@property (strong, nonatomic) IBOutlet UIImageView *moveRange;
 
 @end
 
 @implementation CraftViewController
-
-- (IBAction)left:(id)sender {
-    //game->move_left(cameraFront.v, cameraUP.v);
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,6 +67,8 @@
     GLKView *view = (GLKView *) self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    view.drawableMultisample = GLKViewDrawableMultisample4X;
+    self.preferredFramesPerSecond = 60;
     [self setupGL];
     gamelink = [[GameLink alloc] init];
     game = gamelink->gameCPP;
@@ -86,6 +96,95 @@
     glCullFace(GL_BACK);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if ([touch view] == _jumpButton) {
+        if (game->steve_in_water()) {
+            game->vertical_v += (game->vertical_v>0) ? (FLOAT_UP_V - game->vertical_v) : FLOAT_UP_V;
+        } else if (game->vertical_v == 0 && !game->trymove(game->steve_position-glm::vec3(0, 0.02, 0))) {
+            game->vertical_v = JUMP_V * 3;
+        }
+        jumpFinger = touch;
+    } else if ([touch view] == _moveRange || [touch view] == _moveButton) {
+        moveFinger = touch;
+    } else {
+        dragFinger = touch;
+    }
+}
+
+- (UIRectEdge)preferredScreenEdgesDeferringSystemGestures
+{
+    return UIRectEdgeAll;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if (moveFlag && touch == moveFinger) {
+        _moveButton.center = _moveRange.center;
+        moveFlag = false;
+        moveFinger = nil;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if ([touch view] == _moveRange || [touch view] == _moveButton) {
+        moveFlag = true;
+        CGPoint location = [touch locationInView:self.view];
+        CGFloat full_x = _moveRange.frame.size.width/2;
+        CGFloat full_y = _moveRange.frame.size.height/2;
+        if (location.x > (_moveRange.center.x + full_x)) location.x = _moveRange.center.x + full_x;
+        else if (location.x < (_moveRange.center.x - full_x)) location.x = _moveRange.center.x - full_x;
+        if (location.y > (_moveRange.center.y + full_y)) location.y = _moveRange.center.y + full_y;
+        else if (location.y < (_moveRange.center.y - full_y)) location.y = _moveRange.center.y - full_y;
+        _moveButton.translatesAutoresizingMaskIntoConstraints = true;
+        _moveButton.center = location;
+        CGFloat move_x = location.x - _moveRange.center.x;
+        CGFloat move_y = location.y - _moveRange.center.y;
+        x_v = move_x/full_x;
+        y_v = move_y/full_y;
+    } else {
+        CGPoint location = [touch locationInView:self.view];
+        CGPoint lastLoc = [touch previousLocationInView:self.view];
+        CGPoint diff = CGPointMake(lastLoc.x - location.x, lastLoc.y - location.y);
+        
+        float sensitivity = 0.3f;
+        float xoffset = diff.x * sensitivity;
+        float yoffset = diff.y * sensitivity;
+        yaw -= xoffset;
+        pitch += yoffset;
+        if (pitch > 89.9f)
+            pitch = 89.9f;
+        if (pitch < -89.9f)
+            pitch = -89.9f;
+        glm::vec3 front;
+        front.x = cos(GLKMathDegreesToRadians(yaw)) * cos(GLKMathDegreesToRadians(pitch));
+        front.y = sin(GLKMathDegreesToRadians(pitch));
+        front.z = sin(GLKMathDegreesToRadians(yaw)) * cos(GLKMathDegreesToRadians(pitch));
+        cameraFront = GLKVector3Normalize([self GLKVector3Make:front]);
+    }
+}
+
+- (void)steve_move {
+    GLKVector3 cameraFront_XZ = cameraFront;
+    glm::vec3 new_position;
+    cameraFront_XZ.y = 0;
+    cameraFront_XZ = GLKVector3Normalize(cameraFront_XZ);
+    GLKVector3 cameraRight_XZ = GLKVector3CrossProduct(cameraFront, cameraUP);
+    cameraRight_XZ.y = 0;
+    cameraRight_XZ = GLKVector3Normalize(cameraRight_XZ);
+    
+    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(cameraFront_XZ.x, 0.0f, 0.0f);
+    game->move(new_position);
+    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraFront_XZ.z);
+    game->move(new_position);
+    
+    new_position = game->steve_position + x_v * 6 * deltaTime * glm::vec3(cameraRight_XZ.x, 0.0f, 0.0f);
+    game->move(new_position);
+    new_position = game->steve_position + x_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraRight_XZ.z);
+    game->move(new_position);
+}
+
 - (void)render_initial {
     steve_position = [gamelink vec3:game->steve_position];
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
@@ -100,6 +199,32 @@
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+    
+    glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    [Block_Shader use];
+    [Block_Shader setMat4:@"view" value:steve_view];
+    [Block_Shader setMat4:@"projection" value:steve_projection];
+    [Block_Shader setVec3:@"sunlight.lightDirection" value:[self GLKVector3Make:lightDirection]];
+    [Block_Shader setVec3:@"sunlight.ambient" value:Ambient_light];
+    [Block_Shader setVec3:@"sunlight.lightambient" value:Sun_Moon_light];
+    [Block_Shader setFloat:@"DayPos" value:dayTime/24.0];
+    [Block_Shader setBool:@"isDaylight" value:isDaylight];
+    [Block_Shader setBool:@"eye_in_water" value:(game->steve_eye_in_water())];
+    [Block_Shader setFloat:@"noFogRadius" value:RADIUS*11];
+    [Block_Shader setInt:@"texture_pic" value:0];
+    [Block_Shader setInt:@"skybox" value:1];
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, Block_texure);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, Sky_texture);
+    game->visibleChunks.drawNormQuads(steve_position.y, steve_position.x, steve_position.z);
+    game->visibleChunks.drawTransQuads(steve_position.y, steve_position.x, steve_position.z);
+    [self drawSkybox];
+}
+
+- (void) update {
     double currentFrame = [self glGetTime];
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
@@ -112,13 +237,12 @@
     glm::vec3 old_position = game->steve_position;
     
     float move_length = glm::length(game->steve_position - old_position);
-
-    cameraFront = GLKQuaternionRotateVector3(GLKQuaternionMakeWithAngleAndVector3Axis(deltaTime/10, cameraUP), cameraFront);
     
-    bool isDaylight = (dayTime >= 5.5 && dayTime <= 18.3);
+    //cameraFront = GLKQuaternionRotateVector3(GLKQuaternionMakeWithAngleAndVector3Axis(deltaTime/10, cameraUP), cameraFront);
+    
+    isDaylight = (dayTime >= 5.5 && dayTime <= 18.3);
     float shadowRadius = (RADIUS*2+1)*8*1.2;
     float dayTheta = (dayTime-SUNRISE_TIME)*M_PI/12;
-    glm::vec3 lightDirection;
     if (isDaylight) {
         lightDirection = glm::vec3(sin(randomSunDirection)*cos(dayTheta), -sin(dayTheta), cos(randomSunDirection)*cos(dayTheta));
     } else {
@@ -134,6 +258,9 @@
     moonPos.x += shadowRadius*sin(randomSunDirection)*cos(dayTheta);
     moonPos.z += shadowRadius*cos(randomSunDirection)*cos(dayTheta);
     
+    if (moveFlag) {
+        [self steve_move];
+    }
     game->gravity_move(deltaTime);
     
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
@@ -142,36 +269,14 @@
     steve_position = [gamelink vec3:game->steve_position];
     if (game->game_perspective == FIRST_PERSON) {
         if (!game->steve_in_water() && (game->game_mode == NORMAL_MODE)) {
-            steve_view = GLKMatrix4MakeLookAt(steve_position.x-0.10*cos(jitter), steve_position.y-abs(0.13*sin(jitter*1.6))-0.065, steve_position.z, steve_position.x-0.10*cos(jitter) + cameraFront.x, steve_position.y + cameraFront.y-abs(0.13*sin(jitter*1.6))-0.065, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
+            steve_view = GLKMatrix4MakeLookAt(steve_position.x, steve_position.y, steve_position.z, steve_position.x + cameraFront.x, steve_position.y + cameraFront.y, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
         } else {
             steve_view = GLKMatrix4MakeLookAt(steve_position.x, steve_position.y, steve_position.z, steve_position.x + cameraFront.x, steve_position.y + cameraFront.y, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
         }
     }
     
-    glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
     //game->visibleChunks.calcFrustumPlane(steve_view, steve_projection);
     game->visibleChunks.updataChunks(steve_position.y, steve_position.x, steve_position.z);
-    [Block_Shader use];
-    [Block_Shader setMat4:@"view" value:steve_view];
-    [Block_Shader setMat4:@"projection" value:steve_projection];
-    [Block_Shader setVec3:@"sunlight.lightDirection" value:[self GLKVector3Make:lightDirection]];
-        [Block_Shader setVec3:@"sunlight.ambient" value:Ambient_light];
-    [Block_Shader setVec3:@"sunlight.lightambient" value:Sun_Moon_light];
-    [Block_Shader setFloat:@"DayPos" value:dayTime/24.0];
-    [Block_Shader setBool:@"isDaylight" value:isDaylight];
-    [Block_Shader setBool:@"eye_in_water" value:(game->steve_eye_in_water())];
-    [Block_Shader setFloat:@"noFogRadius" value:RADIUS*11];
-    [Block_Shader setInt:@"texture_pic" value:0];
-    [Block_Shader setInt:@"skybox" value:1];
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, Block_texure);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, Sky_texture);
-    game->visibleChunks.drawNormQuads(steve_position.y, steve_position.x, steve_position.z);
-    game->visibleChunks.drawTransQuads(steve_position.y, steve_position.x, steve_position.z);
-    [self drawSkybox];
 }
     
 - (GLKVector3) GLKVector3Make: (glm::vec3)vec3 {

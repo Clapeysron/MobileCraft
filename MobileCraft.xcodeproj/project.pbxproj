@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3707F4502002899900915EA1 /* mobilecraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 3707F44F2002899800915EA1 /* mobilecraft.png */; };
+		3707F4522002A9BC00915EA1 /* IMG_0607.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 3707F4512002A9BA00915EA1 /* IMG_0607.PNG */; };
+		3707F4542002A9E000915EA1 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3707F4532002A9E000915EA1 /* button.png */; };
+		3707F4562002AA1500915EA1 /* jump.png in Resources */ = {isa = PBXBuildFile; fileRef = 3707F4552002AA1500915EA1 /* jump.png */; };
+		3707F4582002AB0800915EA1 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 3707F4572002AB0800915EA1 /* line.png */; };
 		3708CCE11FEA5F870084729F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FB61FE94E8E00140085 /* Main.storyboard */; };
 		3708CCE21FEA5F870084729F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FB91FE94E8E00140085 /* Assets.xcassets */; };
 		3708CCE31FEA5F870084729F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FBB1FE94E8E00140085 /* LaunchScreen.storyboard */; };
@@ -36,10 +41,14 @@
 		37DFDF121FEABEE900011B66 /* ChunkData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */; };
 		37DFDF131FEABEE900011B66 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDF0F1FEABEE900011B66 /* Block.cpp */; };
 		37E9C2B82002574F00259F9B /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E9C2B72002574F00259F9B /* skybox.png */; };
-		37E9C2BC2002769100259F9B /* mobilecraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E9C2BB2002769100259F9B /* mobilecraft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3707F44F2002899800915EA1 /* mobilecraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mobilecraft.png; path = picture/mobilecraft.png; sourceTree = "<group>"; };
+		3707F4512002A9BA00915EA1 /* IMG_0607.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_0607.PNG; path = ../../../Downloads/IMG_0607.PNG; sourceTree = "<group>"; };
+		3707F4532002A9E000915EA1 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../../button.png; sourceTree = "<group>"; };
+		3707F4552002AA1500915EA1 /* jump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jump.png; path = ../../../Downloads/jump.png; sourceTree = "<group>"; };
+		3707F4572002AB0800915EA1 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = ../../line.png; sourceTree = "<group>"; };
 		3708CEA81FEA79AD0084729F /* GameLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLink.h; sourceTree = "<group>"; };
 		370C3C1B20011BB600F78D9F /* BlockInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlockInfo.cpp; sourceTree = "<group>"; };
 		370C3C1C20011BB600F78D9F /* BlockInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlockInfo.hpp; sourceTree = "<group>"; };
@@ -89,7 +98,6 @@
 		37DFDF0F1FEABEE900011B66 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		37DFDF101FEABEE900011B66 /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Block.hpp; sourceTree = "<group>"; };
 		37E9C2B72002574F00259F9B /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = picture/skybox.png; sourceTree = "<group>"; };
-		37E9C2BB2002769100259F9B /* mobilecraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mobilecraft.png; path = ../../mobilecraft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,12 +169,16 @@
 				379B0FB31FE94E8D00140085 /* ViewController.h */,
 				379B0FB41FE94E8E00140085 /* ViewController.mm */,
 				379B0FB61FE94E8E00140085 /* Main.storyboard */,
+				3707F4572002AB0800915EA1 /* line.png */,
+				3707F4552002AA1500915EA1 /* jump.png */,
+				3707F4532002A9E000915EA1 /* button.png */,
+				3707F4512002A9BA00915EA1 /* IMG_0607.PNG */,
 				37B75EB81FEC09AE00F29AD7 /* Block.png */,
 				37E9C2B72002574F00259F9B /* skybox.png */,
 				37935D2A1FECF74C00D4E83C /* gui */,
 				37935D091FECDE2C00D4E83C /* skybox */,
 				379B0FB91FE94E8E00140085 /* Assets.xcassets */,
-				37E9C2BB2002769100259F9B /* mobilecraft.png */,
+				3707F44F2002899800915EA1 /* mobilecraft.png */,
 				37DFDF0F1FEABEE900011B66 /* Block.cpp */,
 				37DFDF101FEABEE900011B66 /* Block.hpp */,
 				37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */,
@@ -273,21 +285,25 @@
 				37935D171FECDE8500D4E83C /* Skybox.fs in Resources */,
 				3708CCE51FEA5FB20084729F /* Block.fs in Resources */,
 				37E9C2B82002574F00259F9B /* skybox.png in Resources */,
+				3707F4542002A9E000915EA1 /* button.png in Resources */,
 				37935D2F1FECF74D00D4E83C /* down_arrow.png in Resources */,
 				3708CCE61FEA5FB20084729F /* Block.vs in Resources */,
-				37E9C2BC2002769100259F9B /* mobilecraft.png in Resources */,
+				3707F4522002A9BC00915EA1 /* IMG_0607.PNG in Resources */,
 				37935D321FECF74D00D4E83C /* up_arrow.png in Resources */,
 				37935D111FECDE2C00D4E83C /* left.png in Resources */,
 				37935D121FECDE2C00D4E83C /* top.png in Resources */,
 				37935D101FECDE2C00D4E83C /* bottom.png in Resources */,
 				3708CCE11FEA5F870084729F /* Main.storyboard in Resources */,
 				37935D141FECDE2C00D4E83C /* right.png in Resources */,
+				3707F4582002AB0800915EA1 /* line.png in Resources */,
 				3708CCE21FEA5F870084729F /* Assets.xcassets in Resources */,
 				37935D131FECDE2C00D4E83C /* back.png in Resources */,
 				37935D151FECDE2C00D4E83C /* front.png in Resources */,
+				3707F4502002899900915EA1 /* mobilecraft.png in Resources */,
 				37B75EB91FEC09AE00F29AD7 /* Block.png in Resources */,
 				3708CCE31FEA5F870084729F /* LaunchScreen.storyboard in Resources */,
 				3708CCE41FEA5F870084729F /* Info.plist in Resources */,
+				3707F4562002AA1500915EA1 /* jump.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
