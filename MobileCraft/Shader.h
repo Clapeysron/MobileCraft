@@ -15,7 +15,7 @@
 }
 
 - (id) init;
-- (id) initWithPath: (NSString *)vertexPath fs:(NSString *)fragPath;
+- (id) initWithPath: (NSString *)vertexPath fs:(NSString *)fragPath id_num:(int) id_num;
 - (void)use;
 - (void)setBool:(NSString *)name value:(BOOL)value;
 - (void)setInt:(NSString *)name value:(int)value;

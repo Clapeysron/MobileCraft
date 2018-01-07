@@ -35,6 +35,8 @@
 		37DFDF111FEABEE900011B66 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDF0C1FEABEE900011B66 /* Game.cpp */; };
 		37DFDF121FEABEE900011B66 /* ChunkData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */; };
 		37DFDF131FEABEE900011B66 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDF0F1FEABEE900011B66 /* Block.cpp */; };
+		37E9C2B82002574F00259F9B /* skybox.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E9C2B72002574F00259F9B /* skybox.png */; };
+		37E9C2BC2002769100259F9B /* mobilecraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E9C2BB2002769100259F9B /* mobilecraft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		37DFDF0E1FEABEE900011B66 /* ChunkData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChunkData.hpp; sourceTree = "<group>"; };
 		37DFDF0F1FEABEE900011B66 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		37DFDF101FEABEE900011B66 /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Block.hpp; sourceTree = "<group>"; };
+		37E9C2B72002574F00259F9B /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = picture/skybox.png; sourceTree = "<group>"; };
+		37E9C2BB2002769100259F9B /* mobilecraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mobilecraft.png; path = ../../mobilecraft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +162,11 @@
 				379B0FB41FE94E8E00140085 /* ViewController.mm */,
 				379B0FB61FE94E8E00140085 /* Main.storyboard */,
 				37B75EB81FEC09AE00F29AD7 /* Block.png */,
+				37E9C2B72002574F00259F9B /* skybox.png */,
 				37935D2A1FECF74C00D4E83C /* gui */,
 				37935D091FECDE2C00D4E83C /* skybox */,
 				379B0FB91FE94E8E00140085 /* Assets.xcassets */,
+				37E9C2BB2002769100259F9B /* mobilecraft.png */,
 				37DFDF0F1FEABEE900011B66 /* Block.cpp */,
 				37DFDF101FEABEE900011B66 /* Block.hpp */,
 				37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */,
@@ -266,8 +272,10 @@
 				37935D311FECF74D00D4E83C /* right_arrow.png in Resources */,
 				37935D171FECDE8500D4E83C /* Skybox.fs in Resources */,
 				3708CCE51FEA5FB20084729F /* Block.fs in Resources */,
+				37E9C2B82002574F00259F9B /* skybox.png in Resources */,
 				37935D2F1FECF74D00D4E83C /* down_arrow.png in Resources */,
 				3708CCE61FEA5FB20084729F /* Block.vs in Resources */,
+				37E9C2BC2002769100259F9B /* mobilecraft.png in Resources */,
 				37935D321FECF74D00D4E83C /* up_arrow.png in Resources */,
 				37935D111FECDE2C00D4E83C /* left.png in Resources */,
 				37935D121FECDE2C00D4E83C /* top.png in Resources */,

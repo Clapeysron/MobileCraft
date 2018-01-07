@@ -17,7 +17,7 @@
     return self;
 }
 
-- (id) initWithPath: (NSString *)vertexPath fs:(NSString *)fragPath {
+- (id) initWithPath: (NSString *)vertexPath fs:(NSString *)fragPath id_num:(int)id_num {
     GLuint vertex, fragment = 0;
     if (![self compileShader:&vertex type:GL_VERTEX_SHADER file:vertexPath]) {
         NSLog(@"Failed to compile vertex shader");
@@ -31,11 +31,27 @@
     ID = glCreateProgram();
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
-    glBindAttribLocation(ID, 0, "aPos");
-    glBindAttribLocation(ID, 1, "aNormal");
-    glBindAttribLocation(ID, 2, "aTexCoord");
-    glBindAttribLocation(ID, 3, "aShadow");
-    glBindAttribLocation(ID, 4, "aBrightness");
+    if (id_num == 1) {
+        glBindAttribLocation(ID, 0, "aPos");
+    } else if (id_num == 2) {
+        glBindAttribLocation(ID, 0, "aPos");
+        glBindAttribLocation(ID, 1, "aNormal");
+    } else if (id_num == 3) {
+        glBindAttribLocation(ID, 0, "aPos");
+        glBindAttribLocation(ID, 1, "aNormal");
+        glBindAttribLocation(ID, 2, "aTexCoord");
+    } else if (id_num == 4) {
+        glBindAttribLocation(ID, 0, "aPos");
+        glBindAttribLocation(ID, 1, "aNormal");
+        glBindAttribLocation(ID, 2, "aTexCoord");
+        glBindAttribLocation(ID, 3, "aShadow");
+    } else if (id_num == 5) {
+        glBindAttribLocation(ID, 0, "aPos");
+        glBindAttribLocation(ID, 1, "aNormal");
+        glBindAttribLocation(ID, 2, "aTexCoord");
+        glBindAttribLocation(ID, 3, "aShadow");
+        glBindAttribLocation(ID, 4, "aBrightness");
+    }
     if(![self linkProgram:ID]) {
         NSLog(@"Failed to link program: %d", ID);
         if (vertex) {
