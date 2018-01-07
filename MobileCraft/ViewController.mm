@@ -26,13 +26,18 @@
     float jitter;
     float randomSunDirection;
     double lastFrame;
+    float broken_scale;
     float deltaTime;
     Shader *Block_Shader;
     Shader *Skybox_Shader;
     glm::vec3 lightDirection;
+    glm::vec3 prev_block_pos;
+    glm::vec3 chosen_block_pos;
     bool isDaylight;
+    float starIntensity;
     float x_v;
     float y_v;
+    float removeCount;
     UITouch * jumpFinger;
     UITouch * moveFinger;
     UITouch * dragFinger;
@@ -44,7 +49,11 @@
     GLuint Sky_texture;
     GLuint Skybox_VAO;
     GLuint Skybox_VBO;
+    GLuint Gui_VAO;
+    GLuint Gui_VBO;
     bool moveFlag;
+    bool dragHold;
+    bool jumpFlag;
 }
 @property (strong, nonatomic) EAGLContext *context;
 
@@ -99,15 +108,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch * touch = [touches anyObject];
     if ([touch view] == _jumpButton) {
-        if (game->steve_in_water()) {
-            game->vertical_v += (game->vertical_v>0) ? (FLOAT_UP_V - game->vertical_v) : FLOAT_UP_V;
-        } else if (game->vertical_v == 0 && !game->trymove(game->steve_position-glm::vec3(0, 0.02, 0))) {
-            game->vertical_v = JUMP_V * 3;
-        }
+        jumpFlag = true;
         jumpFinger = touch;
     } else if ([touch view] == _moveRange || [touch view] == _moveButton) {
         moveFinger = touch;
     } else {
+        dragHold = true;
         dragFinger = touch;
     }
 }
@@ -123,6 +129,12 @@
         _moveButton.center = _moveRange.center;
         moveFlag = false;
         moveFinger = nil;
+    } else if (dragHold && touch == dragFinger) {
+        dragHold = false;
+        dragFinger = nil;
+    } else if (jumpFlag && touch == jumpFinger){
+        jumpFlag = false;
+        jumpFinger = nil;
     }
 }
 
@@ -185,6 +197,14 @@
     game->move(new_position);
 }
 
+- (void)jump_move {
+    if (game->steve_in_water()) {
+        game->vertical_v += (game->vertical_v>0) ? (FLOAT_UP_V - game->vertical_v) : FLOAT_UP_V;
+    } else if (game->vertical_v == 0 && !game->trymove(game->steve_position-glm::vec3(0, 0.02, 0))) {
+        game->vertical_v = JUMP_V * 3;
+    }
+}
+
 - (void)render_initial {
     steve_position = [gamelink vec3:game->steve_position];
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
@@ -196,6 +216,7 @@
     [self setupCubeBuffer];
     Star_texture = [self setupCubeTexture];
     Sky_texture = [self setupTexture:@"skybox.png"];
+    
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
@@ -210,10 +231,14 @@
     [Block_Shader setVec3:@"sunlight.ambient" value:Ambient_light];
     [Block_Shader setVec3:@"sunlight.lightambient" value:Sun_Moon_light];
     [Block_Shader setFloat:@"DayPos" value:dayTime/24.0];
+    float broken_texture_x = floor(broken_scale*10)/10;
+    [Block_Shader setFloat:@"broken_texture_x" value:broken_texture_x];
     [Block_Shader setBool:@"isDaylight" value:isDaylight];
     [Block_Shader setBool:@"eye_in_water" value:(game->steve_eye_in_water())];
     [Block_Shader setFloat:@"noFogRadius" value:RADIUS*11];
+    [Block_Shader setVec3:@"chosen_block_pos" value:[self GLKVector3Make:chosen_block_pos]];
     [Block_Shader setInt:@"texture_pic" value:0];
+    [Block_Shader setFloat:@"starIntensity" value:starIntensity];
     [Block_Shader setInt:@"skybox" value:1];
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, Block_texure);
@@ -230,7 +255,7 @@
     lastFrame = currentFrame;
     dayTime += deltaTime/30;
     dayTime = (dayTime>24) ? dayTime - 24 : dayTime;
-    float starIntensity = [self calStarIntensity:dayTime];
+    starIntensity = [self calStarIntensity:dayTime];
     Sun_Moon_light = [self calLight:dayTime];
     Ambient_light = [self calAmbient:dayTime];
     
@@ -239,6 +264,23 @@
     float move_length = glm::length(game->steve_position - old_position);
     
     //cameraFront = GLKQuaternionRotateVector3(GLKQuaternionMakeWithAngleAndVector3Axis(deltaTime/10, cameraUP), cameraFront);
+    
+    chosen_block_pos = game->visibleChunks.accessibleBlock(game->steve_position, glm::vec3(cameraFront.x, cameraFront.y, cameraFront.z));
+    char chosen_block_type = game->visibleChunks.getBlockType(chosen_block_pos.y, chosen_block_pos.x, chosen_block_pos.z);
+    broken_scale = 0;
+    if(dragHold && chosen_block_pos==prev_block_pos) {
+        removeCount += deltaTime;
+        float broke_time = BlockInfoMap[chosen_block_type].broke_time;
+        broken_scale = (chosen_block_type>>4 == -4) ? 0 : ((removeCount<0)?0:removeCount)/broke_time;
+        if (removeCount < broke_time) {
+        } else {
+            game->visibleChunks.removeBlock(game->steve_position, glm::vec3(cameraFront.x, cameraFront.y, cameraFront.z));
+            removeCount = -0.3;
+        }
+    } else {
+        removeCount = -0.3;
+    }
+    prev_block_pos = chosen_block_pos;
     
     isDaylight = (dayTime >= 5.5 && dayTime <= 18.3);
     float shadowRadius = (RADIUS*2+1)*8*1.2;
@@ -261,6 +303,11 @@
     if (moveFlag) {
         [self steve_move];
     }
+    
+    if (jumpFlag) {
+        [self jump_move];
+    }
+    
     game->gravity_move(deltaTime);
     
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
@@ -339,7 +386,7 @@
     [Skybox_Shader setMat4:@"view" value:Skyview];
     [Skybox_Shader setMat4:@"projection" value:steve_projection];
     [Skybox_Shader setFloat:@"DayPos" value:dayTime/24.0];
-    [Skybox_Shader setFloat:@"starIntensity" value:0];
+    [Skybox_Shader setFloat:@"starIntensity" value:starIntensity];
     [Skybox_Shader setInt:@"skybox" value:0];
     [Skybox_Shader setInt:@"star" value:1];
     glBindVertexArray(Skybox_VAO);

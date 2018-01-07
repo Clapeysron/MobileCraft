@@ -8,6 +8,7 @@ uniform float broken_texture_x;
 uniform float noFogRadius;
 uniform bool eye_in_water;
 uniform bool isDaylight;
+uniform vec3 chosen_block_pos;
 const float fogDensity = 0.05;
 
 varying vec3 FragPos;
@@ -25,6 +26,13 @@ struct Sunlight {
 
 uniform Sunlight sunlight;
 
+float isChosen(vec3 FragPos) {
+    if ( FragPos.x < chosen_block_pos.x - 0.0001 || FragPos.x > chosen_block_pos.x + 1.0001 ||
+            FragPos.y < chosen_block_pos.y - 0.0001 || FragPos.y > chosen_block_pos.y + 1.0001 ||
+        FragPos.z < chosen_block_pos.z - 0.0001 || FragPos.z > chosen_block_pos.z + 1.0001 ) return 1.0;
+    return 1.3;
+}
+
 void main()
 {
     vec3 color = texture2D(texture_pic, TexCoord).rgb;
@@ -39,6 +47,18 @@ void main()
     } else {
         diffuse = sunlight.lightambient * diff;
     }
+    float isChosen = isChosen(FragPos);
+    
+    //Chosen and Break
+    if (isChosen == 1.3 && broken_texture_x!= 0.0) {
+        float real_broken_texture_x = broken_texture_x + TexCoord.x - float(int(floor(TexCoord.x*10.0))/10);
+        float real_broken_texture_y = TexCoord.y - float(int(floor(TexCoord.y*10.0))/10) + 0.9;
+        vec4 broken_texture = texture2D(texture_pic, vec2(real_broken_texture_x, real_broken_texture_y));
+        if (broken_texture.a>0.05) {
+            color = (broken_texture.r+0.1) * 2.0 * color;
+        }
+    }
+
     
     if (eye_in_water) {
         float real_water_texture_x = TexCoord.x - float(int(floor(TexCoord.x*10.0))/10) + 0.9;
@@ -61,7 +81,7 @@ void main()
         if(tmpShadow < 0.0) tmpShadow = 1.0;
         else if(tmpShadow > 1.0) tmpShadow = 1.0;
         else tmpShadow = 0.7*tmpShadow + 0.3;
-        result = tmpShadow * (sunlight.ambient + mix(sun_bright, point_bright, point_bright.r/(sunlight.lightambient.r+point_bright.r)) ) * color;
+        result = tmpShadow * (sunlight.ambient + mix(sun_bright, point_bright, point_bright.r/(sunlight.lightambient.r+point_bright.r)) ) * isChosen * color;
     } else {
         discard;
     }
