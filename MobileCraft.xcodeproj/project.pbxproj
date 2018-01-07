@@ -13,6 +13,19 @@
 		3708CCE41FEA5F870084729F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 379B0FBE1FE94E8E00140085 /* Info.plist */; };
 		3708CCE51FEA5FB20084729F /* Block.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E21FE97D6600FE4785 /* Block.fs */; };
 		3708CCE61FEA5FB20084729F /* Block.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03ED1FE97D6600FE4785 /* Block.vs */; };
+		370C3C1D20011BB600F78D9F /* BlockInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370C3C1B20011BB600F78D9F /* BlockInfo.cpp */; };
+		37935D101FECDE2C00D4E83C /* bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0A1FECDE2C00D4E83C /* bottom.png */; };
+		37935D111FECDE2C00D4E83C /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0B1FECDE2C00D4E83C /* left.png */; };
+		37935D121FECDE2C00D4E83C /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0C1FECDE2C00D4E83C /* top.png */; };
+		37935D131FECDE2C00D4E83C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0D1FECDE2C00D4E83C /* back.png */; };
+		37935D141FECDE2C00D4E83C /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0E1FECDE2C00D4E83C /* right.png */; };
+		37935D151FECDE2C00D4E83C /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D0F1FECDE2C00D4E83C /* front.png */; };
+		37935D161FECDE8500D4E83C /* Skybox.vs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03E31FE97D6600FE4785 /* Skybox.vs */; };
+		37935D171FECDE8500D4E83C /* Skybox.fs in Resources */ = {isa = PBXBuildFile; fileRef = 37BA03EC1FE97D6600FE4785 /* Skybox.fs */; };
+		37935D2F1FECF74D00D4E83C /* down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D2B1FECF74C00D4E83C /* down_arrow.png */; };
+		37935D301FECF74D00D4E83C /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D2C1FECF74C00D4E83C /* left_arrow.png */; };
+		37935D311FECF74D00D4E83C /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D2D1FECF74C00D4E83C /* right_arrow.png */; };
+		37935D321FECF74D00D4E83C /* up_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 37935D2E1FECF74C00D4E83C /* up_arrow.png */; };
 		379B0FB21FE94E8D00140085 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FB11FE94E8D00140085 /* AppDelegate.m */; };
 		379B0FB51FE94E8E00140085 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FB41FE94E8E00140085 /* ViewController.mm */; };
 		379B0FC01FE94E8E00140085 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 379B0FBF1FE94E8E00140085 /* main.m */; };
@@ -26,6 +39,18 @@
 
 /* Begin PBXFileReference section */
 		3708CEA81FEA79AD0084729F /* GameLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLink.h; sourceTree = "<group>"; };
+		370C3C1B20011BB600F78D9F /* BlockInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlockInfo.cpp; sourceTree = "<group>"; };
+		370C3C1C20011BB600F78D9F /* BlockInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BlockInfo.hpp; sourceTree = "<group>"; };
+		37935D0A1FECDE2C00D4E83C /* bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottom.png; sourceTree = "<group>"; };
+		37935D0B1FECDE2C00D4E83C /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		37935D0C1FECDE2C00D4E83C /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		37935D0D1FECDE2C00D4E83C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		37935D0E1FECDE2C00D4E83C /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		37935D0F1FECDE2C00D4E83C /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
+		37935D2B1FECF74C00D4E83C /* down_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_arrow.png; sourceTree = "<group>"; };
+		37935D2C1FECF74C00D4E83C /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		37935D2D1FECF74C00D4E83C /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		37935D2E1FECF74C00D4E83C /* up_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_arrow.png; sourceTree = "<group>"; };
 		379B0FAD1FE94E8D00140085 /* MobileCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B0FB01FE94E8D00140085 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		379B0FB11FE94E8D00140085 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +106,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		37935D091FECDE2C00D4E83C /* skybox */ = {
+			isa = PBXGroup;
+			children = (
+				37935D0A1FECDE2C00D4E83C /* bottom.png */,
+				37935D0B1FECDE2C00D4E83C /* left.png */,
+				37935D0C1FECDE2C00D4E83C /* top.png */,
+				37935D0D1FECDE2C00D4E83C /* back.png */,
+				37935D0E1FECDE2C00D4E83C /* right.png */,
+				37935D0F1FECDE2C00D4E83C /* front.png */,
+			);
+			name = skybox;
+			path = picture/skybox;
+			sourceTree = "<group>";
+		};
+		37935D2A1FECF74C00D4E83C /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				37935D2B1FECF74C00D4E83C /* down_arrow.png */,
+				37935D2C1FECF74C00D4E83C /* left_arrow.png */,
+				37935D2D1FECF74C00D4E83C /* right_arrow.png */,
+				37935D2E1FECF74C00D4E83C /* up_arrow.png */,
+			);
+			name = gui;
+			path = picture/gui;
+			sourceTree = "<group>";
+		};
 		379B0FA41FE94E8D00140085 = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +158,15 @@
 				379B0FB41FE94E8E00140085 /* ViewController.mm */,
 				379B0FB61FE94E8E00140085 /* Main.storyboard */,
 				37B75EB81FEC09AE00F29AD7 /* Block.png */,
+				37935D2A1FECF74C00D4E83C /* gui */,
+				37935D091FECDE2C00D4E83C /* skybox */,
 				379B0FB91FE94E8E00140085 /* Assets.xcassets */,
 				37DFDF0F1FEABEE900011B66 /* Block.cpp */,
 				37DFDF101FEABEE900011B66 /* Block.hpp */,
 				37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */,
 				37DFDF0E1FEABEE900011B66 /* ChunkData.hpp */,
+				370C3C1B20011BB600F78D9F /* BlockInfo.cpp */,
+				370C3C1C20011BB600F78D9F /* BlockInfo.hpp */,
 				37DFDF0C1FEABEE900011B66 /* Game.cpp */,
 				37DFDF0B1FEABEE900011B66 /* Game.hpp */,
 				379B0FD31FEA459F00140085 /* game_settings.h */,
@@ -132,17 +187,17 @@
 			children = (
 				37BA03E21FE97D6600FE4785 /* Block.fs */,
 				37BA03ED1FE97D6600FE4785 /* Block.vs */,
-				37BA03E31FE97D6600FE4785 /* Skybox.vs */,
-				37BA03E41FE97D6600FE4785 /* Gui.fs */,
-				37BA03E51FE97D6600FE4785 /* Depth_debug.fs */,
-				37BA03E61FE97D6600FE4785 /* Sunlight.vs */,
-				37BA03E71FE97D6600FE4785 /* Depth.fs */,
-				37BA03E81FE97D6600FE4785 /* Steve.vs */,
-				37BA03E91FE97D6600FE4785 /* Sunlight.fs */,
-				37BA03EA1FE97D6600FE4785 /* Depth.vs */,
-				37BA03EB1FE97D6600FE4785 /* Steve.fs */,
 				37BA03EC1FE97D6600FE4785 /* Skybox.fs */,
+				37BA03E31FE97D6600FE4785 /* Skybox.vs */,
+				37BA03E61FE97D6600FE4785 /* Sunlight.vs */,
+				37BA03E91FE97D6600FE4785 /* Sunlight.fs */,
+				37BA03E71FE97D6600FE4785 /* Depth.fs */,
+				37BA03EA1FE97D6600FE4785 /* Depth.vs */,
+				37BA03E81FE97D6600FE4785 /* Steve.vs */,
+				37BA03EB1FE97D6600FE4785 /* Steve.fs */,
+				37BA03E51FE97D6600FE4785 /* Depth_debug.fs */,
 				37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */,
+				37BA03E41FE97D6600FE4785 /* Gui.fs */,
 				37BA03EF1FE97D6600FE4785 /* Gui.vs */,
 			);
 			path = shader;
@@ -206,10 +261,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37935D301FECF74D00D4E83C /* left_arrow.png in Resources */,
+				37935D161FECDE8500D4E83C /* Skybox.vs in Resources */,
+				37935D311FECF74D00D4E83C /* right_arrow.png in Resources */,
+				37935D171FECDE8500D4E83C /* Skybox.fs in Resources */,
 				3708CCE51FEA5FB20084729F /* Block.fs in Resources */,
+				37935D2F1FECF74D00D4E83C /* down_arrow.png in Resources */,
 				3708CCE61FEA5FB20084729F /* Block.vs in Resources */,
+				37935D321FECF74D00D4E83C /* up_arrow.png in Resources */,
+				37935D111FECDE2C00D4E83C /* left.png in Resources */,
+				37935D121FECDE2C00D4E83C /* top.png in Resources */,
+				37935D101FECDE2C00D4E83C /* bottom.png in Resources */,
 				3708CCE11FEA5F870084729F /* Main.storyboard in Resources */,
+				37935D141FECDE2C00D4E83C /* right.png in Resources */,
 				3708CCE21FEA5F870084729F /* Assets.xcassets in Resources */,
+				37935D131FECDE2C00D4E83C /* back.png in Resources */,
+				37935D151FECDE2C00D4E83C /* front.png in Resources */,
 				37B75EB91FEC09AE00F29AD7 /* Block.png in Resources */,
 				3708CCE31FEA5F870084729F /* LaunchScreen.storyboard in Resources */,
 				3708CCE41FEA5F870084729F /* Info.plist in Resources */,
@@ -226,6 +293,7 @@
 				379B0FB51FE94E8E00140085 /* ViewController.mm in Sources */,
 				37DFDF121FEABEE900011B66 /* ChunkData.cpp in Sources */,
 				379B0FC01FE94E8E00140085 /* main.m in Sources */,
+				370C3C1D20011BB600F78D9F /* BlockInfo.cpp in Sources */,
 				379B0FDF1FEA491200140085 /* GameLink.mm in Sources */,
 				37DFDF111FEABEE900011B66 /* Game.cpp in Sources */,
 				37DFDF131FEABEE900011B66 /* Block.cpp in Sources */,

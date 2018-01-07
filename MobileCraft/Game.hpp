@@ -8,10 +8,10 @@
 
 #ifndef Game_hpp
 #define Game_hpp
+#include "glm/glm.hpp"
 #include "ChunkData.hpp"
 #include "Block.hpp"
-#include "glm/glm.hpp"
-
+#include "BlockInfo.hpp"
 enum Game_mode {
     NORMAL_MODE,
     GOD_MODE
@@ -22,6 +22,16 @@ enum Game_perspective {
     THIRD_PERSON
 };
 
+enum Options {
+    FOV,
+    CURSOR,
+    GAME_MODE,
+    GAME_PERSPECTIVE,
+    ZOOM
+};
+
+
+
 class Game {
 public:
     Game();
@@ -30,12 +40,17 @@ public:
     Block block;
     Game_mode game_mode;
     Game_perspective game_perspective;
+    Options game_options;
     glm::vec3 user_position;
     glm::vec3 steve_position;
     float vertical_v;
     bool move(glm::vec3 new_postions);
-    bool gravity_move();
+    bool trymove(glm::vec3 new_postions);
+    bool steve_in_water();
+    bool steve_eye_in_water();
+    bool gravity_move(float deltaTime);
 private:
+    bool prev_in_water;
     bool if_in_block(int x, int y, int z, glm::vec3 position);
 };
 #endif /* Game_hpp */

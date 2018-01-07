@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.741203"
+            timestampString = "536946118.697197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "CraftViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.927769"
+            timestampString = "536946118.697477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1243"
             endingLineNumber = "1243"
-            landmarkName = "VisibleChunks::drawNormQuads(float cameraPos_y, float cameraPos_x, float cameraPos_z)"
+            landmarkName = "Chunk::recycle(int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.741841"
+            timestampString = "536946118.6975189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/Block.cpp"
-            timestampString = "535566607.741967"
+            timestampString = "535620449.990125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "Block::Block()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,27 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.742021"
+            timestampString = "536946118.697727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-glkView:drawInRect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.742095"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.928391"
+            timestampString = "536946118.697907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1239"
             endingLineNumber = "1239"
-            landmarkName = "VisibleChunks::drawNormQuads(float cameraPos_y, float cameraPos_x, float cameraPos_z)"
+            landmarkName = "Chunk::recycle(int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.92891"
+            timestampString = "536946118.697946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1026"
             endingLineNumber = "1026"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.929408"
+            timestampString = "536946118.697979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1027"
             endingLineNumber = "1027"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,12 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.929738"
+            timestampString = "536946118.698012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1029"
             endingLineNumber = "1029"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.929982"
+            timestampString = "536946118.6980439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1033"
             endingLineNumber = "1033"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.930215"
+            timestampString = "536946118.698076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1037"
             endingLineNumber = "1037"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -218,12 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.93046"
+            timestampString = "536946118.698108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1055"
             endingLineNumber = "1055"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -234,12 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.930687"
+            timestampString = "536946118.69814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1060"
             endingLineNumber = "1060"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.930895"
+            timestampString = "536946118.698172"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1025"
             endingLineNumber = "1025"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,28 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.931104"
+            timestampString = "536946118.698203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1036"
             endingLineNumber = "1036"
-            landmarkName = "VisibleChunks::getRenderingSubChunks(int y, int x, int z)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MobileCraft/Game.cpp"
-            timestampString = "535561540.664777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "Game::gravity_move()"
+            landmarkName = "SubChunk::calcBrightness(int y, int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.745223"
+            timestampString = "536946118.698236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-glkView:drawInRect:"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,12 +282,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ChunkData.cpp"
-            timestampString = "535571125.931352"
+            timestampString = "536946118.698411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1244"
             endingLineNumber = "1244"
-            landmarkName = "VisibleChunks::drawNormQuads(float cameraPos_y, float cameraPos_x, float cameraPos_z)"
+            landmarkName = "Chunk::recycle(int x, int z)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,12 +298,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileCraft/ViewController.mm"
-            timestampString = "535566607.745542"
+            timestampString = "536946118.698449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-setupTexture:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileCraft/ViewController.mm"
+            timestampString = "536946118.698624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-render_initial"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileCraft/ViewController.mm"
+            timestampString = "536946118.698799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-drawSkybox"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileCraft/ViewController.mm"
+            timestampString = "536946118.698976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-render_initial"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

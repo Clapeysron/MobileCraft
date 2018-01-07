@@ -34,6 +34,8 @@
     glBindAttribLocation(ID, 0, "aPos");
     glBindAttribLocation(ID, 1, "aNormal");
     glBindAttribLocation(ID, 2, "aTexCoord");
+    glBindAttribLocation(ID, 3, "aShadow");
+    glBindAttribLocation(ID, 4, "aBrightness");
     if(![self linkProgram:ID]) {
         NSLog(@"Failed to link program: %d", ID);
         if (vertex) {

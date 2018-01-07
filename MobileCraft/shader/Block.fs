@@ -6,10 +6,14 @@ varying vec3 FragPos;
 varying vec3 Normal;
 varying vec2 TexCoord;
 //varying vec4 FragPosLightSpace;
+varying float shadow;
+varying float brightness;
+varying vec4 ViewPos;
 
 struct Sunlight {
     vec3 lightDirection;
     vec3 ambient;
+    vec3 lightambient;
 };
 
 uniform Sunlight sunlight;
@@ -60,17 +64,31 @@ void main()
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(-sunlight.lightDirection);
     float diff = max(dot(lightDir, norm), 0.0);
-    vec3 diffuse = sunlight.ambient * diff * 3.0;
+    vec3 diffuse;
+    if (shadow == -1.0) {
+        diffuse = (sunlight.lightambient-vec3(0.095))*10.0;
+    } else {
+        diffuse = sunlight.lightambient * diff;
+    }
     //float isChosen = isChosen(FragPos);
 
     //float shadow = ShadowCalculation(FragPosLightSpace);
     vec3 result;
-    if (alpha == 1.0) {
-        result = (sunlight.ambient + diffuse) * color;
-        //result = (sunlight.ambient + (1.0 - shadow) * diffuse) * isChosen * color;
+    vec3 point_light_ambient = vec3(1.0, 0.9, 0.8);
+    if (alpha >= 0.05) {
+        // Without Shadow mapping
+        //result = (sunlight.ambient + diffuse) * isChosen * color;
+        // With Shadow mapping
+        vec3 sun_bright = (1.1 - shadow) * diffuse;
+        vec3 point_bright = point_light_ambient * brightness;
+        float tmpShadow = shadow;
+        if(tmpShadow == -1.0) tmpShadow = 1.0;
+        else if(tmpShadow > 1.0) tmpShadow = 1.0;
+        else tmpShadow = 0.7*tmpShadow + 0.3;
+        result = tmpShadow * (sunlight.ambient + mix(sun_bright, point_bright, point_bright.r/(sunlight.lightambient.r+point_bright.r)) ) * color;
     } else {
-        result = color;
-        //result = (1.0 - shadow) * isChosen * color;
+        discard;
     }
+    
     gl_FragColor = vec4(result, alpha);
 }

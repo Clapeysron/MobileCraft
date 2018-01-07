@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,65 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CraftViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GLKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="cNa-FQ-bLa">
+                                <rect key="frame" x="126" y="186" width="53" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2N2-4e-Ip6" appends="YES" id="80s-TL-SwH"/>
+                                </connections>
+                            </imageView>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="p8a-uP-85d">
+                                <rect key="frame" x="126" y="300" width="53" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ffL-ow-O3J" appends="YES" id="XJL-d3-f6F"/>
+                                </connections>
+                            </imageView>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="rD5-5z-l0b">
+                                <rect key="frame" x="77" y="235" width="27" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iyI-uk-p3h" appends="YES" id="TOW-SP-RKq"/>
+                                </connections>
+                            </imageView>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="3eo-xM-dzc">
+                                <rect key="frame" x="200" y="235" width="27" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ivs-tN-Wc8" appends="YES" id="0GK-Vg-28W"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="left_arrow" destination="rD5-5z-l0b" id="ZY6-qh-5rW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iyI-uk-p3h">
+                    <connections>
+                        <action selector="left:" destination="BYZ-38-t0r" id="Lq6-Wx-ShD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2N2-4e-Ip6"/>
+                <tapGestureRecognizer id="ivs-tN-Wc8"/>
+                <tapGestureRecognizer id="ffL-ow-O3J"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="down_arrow.png" width="147" height="92"/>
+        <image name="left_arrow.png" width="88" height="140"/>
+        <image name="right_arrow.png" width="88" height="140"/>
+        <image name="up_arrow.png" width="147" height="92"/>
+    </resources>
 </document>

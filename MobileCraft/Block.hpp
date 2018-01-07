@@ -10,14 +10,18 @@
 #define Block_hpp
 
 #include "game_settings.h"
-#include <vector>
+#include "BlockInfo.hpp"
 #include <OpenGLES/ES3/gl.h>
 #include "glm/glm.hpp"
+#include <vector>
 
 class Block {
 public:
+    float *tempVertex;
     Block();
     void updateBuffer(bool isNew, float *vertices, unsigned long size);
+    void newHoldBlock();
+    void updateBlock(char type);
     ~Block();
     unsigned int getVAO();
 private:
