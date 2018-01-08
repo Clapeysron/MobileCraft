@@ -26,12 +26,20 @@
                                 <rect key="frame" x="103" y="231" width="66" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jump.png" translatesAutoresizingMaskIntoConstraints="NO" id="4nD-7t-qkW">
-                                <rect key="frame" x="700" y="267" width="41" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SIGHTBEAD.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-w9-OKn">
                                 <rect key="frame" x="392" y="180" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7S-Ux-W7T">
+                                <rect key="frame" x="344" y="296" width="61" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-J9-hbx">
+                                <rect key="frame" x="406" y="296" width="62" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jump.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-EQ-Pz2">
+                                <rect key="frame" x="691" y="259" width="58" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -39,9 +47,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="jumpButton" destination="4nD-7t-qkW" id="8YO-iZ-h5L"/>
+                        <outlet property="jumpButton" destination="7ox-EQ-Pz2" id="5Lo-Az-rbj"/>
+                        <outlet property="leftArrow" destination="y7S-Ux-W7T" id="cRo-eb-0NK"/>
                         <outlet property="moveButton" destination="gvm-0W-dqZ" id="qhP-cS-XNl"/>
                         <outlet property="moveRange" destination="KNq-Fz-o8E" id="F5r-ua-lA0"/>
+                        <outlet property="rightArrow" destination="G0V-J9-hbx" id="tkF-eH-Qgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,7 +70,9 @@
     <resources>
         <image name="SIGHTBEAD.png" width="59" height="57"/>
         <image name="button.png" width="198" height="198"/>
-        <image name="jump.png" width="126" height="126"/>
+        <image name="jump.png" width="175" height="175"/>
+        <image name="left_arrow.png" width="215" height="151"/>
         <image name="line.png" width="710" height="712"/>
+        <image name="right_arrow.png" width="215" height="151"/>
     </resources>
 </document>

@@ -11,6 +11,8 @@
 #import "Shader.h"
 #import <vector>
 
+char placeBlockList[]= {(char)TORCH, COBBLESTONE, MOSSY_COBBLESTONE, STONE_BRICK, QUARTZ, GOLD, TNT, ROCK, SOIL, GRASSLAND, TRUNK, GLOWSTONE, WOOD, RED_WOOD, TINT_WOOD, DARK_WOOD, BRICK, SAND, COAL_ORE, GOLD_ORE, IRON_ORE, DIAMAND_ORE, EMERALD_ORE, TOOLBOX, SMELTER, WATERMELON, PUMPKIN, WHITE_WOOL, (char)GLASS};
+
 @interface CraftViewController () {
     GameLink *gamelink;
     Game *game;
@@ -30,10 +32,13 @@
     float deltaTime;
     Shader *Block_Shader;
     Shader *Skybox_Shader;
+    Shader *HoldBlock_Shader;
     glm::vec3 lightDirection;
     glm::vec3 prev_block_pos;
     glm::vec3 chosen_block_pos;
     bool isDaylight;
+    int nowPlaceBlock;
+    double holdTime;
     float starIntensity;
     float x_v;
     float y_v;
@@ -54,12 +59,16 @@
     bool moveFlag;
     bool dragHold;
     bool jumpFlag;
+    bool startBreak;
+    bool tryPlace;
 }
 @property (strong, nonatomic) EAGLContext *context;
 
 @property (strong, nonatomic) IBOutlet UIImageView *moveButton;
 @property (strong, nonatomic) IBOutlet UIImageView *jumpButton;
 @property (strong, nonatomic) IBOutlet UIImageView *moveRange;
+@property (strong, nonatomic) IBOutlet UIImageView *leftArrow;
+@property (strong, nonatomic) IBOutlet UIImageView *rightArrow;
 
 @end
 
@@ -84,6 +93,7 @@
     cameraFront = GLKVector3Make(0.0, 0.0, -1.0);
     cameraUP = GLKVector3Make(0.0, 1.0, 0.0);
     dayTime = 5.5;
+    nowPlaceBlock = 0;
     deltaTime = 0;
     jitter = 0;
     srand(0);
@@ -112,7 +122,13 @@
         jumpFinger = touch;
     } else if ([touch view] == _moveRange || [touch view] == _moveButton) {
         moveFinger = touch;
+    } else if ([touch view] == _leftArrow) {
+        nowPlaceBlock--;
+    } else if ([touch view] == _rightArrow) {
+        nowPlaceBlock++;
     } else {
+        holdTime = [self glGetTime];
+        startBreak = true;
         dragHold = true;
         dragFinger = touch;
     }
@@ -130,6 +146,9 @@
         moveFlag = false;
         moveFinger = nil;
     } else if (dragHold && touch == dragFinger) {
+        if ([self glGetTime] - holdTime < HOLD_TIME) {
+            tryPlace = true;
+        }
         dragHold = false;
         dragFinger = nil;
     } else if (jumpFlag && touch == jumpFinger){
@@ -195,6 +214,7 @@
     game->move(new_position);
     new_position = game->steve_position + x_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraRight_XZ.z);
     game->move(new_position);
+    steve_position = [self GLKVector3Make:game->steve_position];
 }
 
 - (void)jump_move {
@@ -216,7 +236,7 @@
     [self setupCubeBuffer];
     Star_texture = [self setupCubeTexture];
     Sky_texture = [self setupTexture:@"skybox.png"];
-    
+    HoldBlock_Shader = [[Shader alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"HoldBlock" ofType:@"vs"] fs:[[NSBundle mainBundle] pathForResource:@"HoldBlock" ofType:@"fs"] id_num:2];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
@@ -247,6 +267,7 @@
     game->visibleChunks.drawNormQuads(steve_position.y, steve_position.x, steve_position.z);
     game->visibleChunks.drawTransQuads(steve_position.y, steve_position.x, steve_position.z);
     [self drawSkybox];
+    [self drawHoldBlock];
 }
 
 - (void) update {
@@ -259,8 +280,17 @@
     Sun_Moon_light = [self calLight:dayTime];
     Ambient_light = [self calAmbient:dayTime];
     
+    game->gravity_move(deltaTime);
     glm::vec3 old_position = game->steve_position;
     
+    if (moveFlag) {
+        [self steve_move];
+    }
+    
+    if (jumpFlag) {
+        [self jump_move];
+    }
+
     float move_length = glm::length(game->steve_position - old_position);
     
     //cameraFront = GLKQuaternionRotateVector3(GLKQuaternionMakeWithAngleAndVector3Axis(deltaTime/10, cameraUP), cameraFront);
@@ -269,18 +299,26 @@
     char chosen_block_type = game->visibleChunks.getBlockType(chosen_block_pos.y, chosen_block_pos.x, chosen_block_pos.z);
     broken_scale = 0;
     if(dragHold && chosen_block_pos==prev_block_pos) {
-        removeCount += deltaTime;
-        float broke_time = BlockInfoMap[chosen_block_type].broke_time;
-        broken_scale = (chosen_block_type>>4 == -4) ? 0 : ((removeCount<0)?0:removeCount)/broke_time;
-        if (removeCount < broke_time) {
-        } else {
-            game->visibleChunks.removeBlock(game->steve_position, glm::vec3(cameraFront.x, cameraFront.y, cameraFront.z));
-            removeCount = -0.3;
+        if ([self glGetTime] - holdTime > HOLD_TIME) {
+            removeCount += deltaTime;
+            float broke_time = BlockInfoMap[chosen_block_type].broke_time;
+            broken_scale = (chosen_block_type>>4 == -4) ? 0 : ((removeCount<0)?0:removeCount)/broke_time;
+            if (removeCount < broke_time) {
+            } else {
+                game->visibleChunks.removeBlock(game->steve_position, glm::vec3(cameraFront.x, cameraFront.y, cameraFront.z));
+                removeCount = 0;
+            }
         }
     } else {
-        removeCount = -0.3;
+        dragHold = false;
+        removeCount = 0;
     }
     prev_block_pos = chosen_block_pos;
+
+    if(tryPlace){
+        bool ret = game->visibleChunks.placeBlock(game->steve_position, glm::vec3(cameraFront.x, cameraFront.y, cameraFront.z), placeBlockList[nowPlaceBlock]);
+        tryPlace = false;
+    }
     
     isDaylight = (dayTime >= 5.5 && dayTime <= 18.3);
     float shadowRadius = (RADIUS*2+1)*8*1.2;
@@ -299,24 +337,16 @@
     moonPos.y = 120.0f - shadowRadius*sin(dayTheta);
     moonPos.x += shadowRadius*sin(randomSunDirection)*cos(dayTheta);
     moonPos.z += shadowRadius*cos(randomSunDirection)*cos(dayTheta);
-    
-    if (moveFlag) {
-        [self steve_move];
-    }
-    
-    if (jumpFlag) {
-        [self jump_move];
-    }
-    
-    game->gravity_move(deltaTime);
-    
+
     float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
     steve_projection = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(fov), aspect, 0.1f, 1000.0f);
     jitter += move_length;
+    float jitter_x = 0.10*cos(jitter);
+    float jitter_y = abs(0.13*sin(jitter*1.6))-0.065;
     steve_position = [gamelink vec3:game->steve_position];
     if (game->game_perspective == FIRST_PERSON) {
         if (!game->steve_in_water() && (game->game_mode == NORMAL_MODE)) {
-            steve_view = GLKMatrix4MakeLookAt(steve_position.x, steve_position.y, steve_position.z, steve_position.x + cameraFront.x, steve_position.y + cameraFront.y, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
+            steve_view = GLKMatrix4MakeLookAt(steve_position.x - jitter_x, steve_position.y - jitter_y, steve_position.z, steve_position.x -jitter_x + cameraFront.x, steve_position.y - jitter_y+ cameraFront.y, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
         } else {
             steve_view = GLKMatrix4MakeLookAt(steve_position.x, steve_position.y, steve_position.z, steve_position.x + cameraFront.x, steve_position.y + cameraFront.y, steve_position.z + cameraFront.z, cameraUP.x, cameraUP.y, cameraUP.z);
         }
@@ -377,6 +407,22 @@
 - (double) glGetTime {
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     return interval;
+}
+
+- (void) drawHoldBlock {
+    game->visibleChunks.HoldBlock.updateBlock((char)placeBlockList[nowPlaceBlock%sizeof(placeBlockList)]);
+    glCullFace(GL_BACK);
+    [HoldBlock_Shader use];
+    GLKMatrix4 model = [self GLKUnitMatrix4];
+    model = GLKMatrix4Translate(model, 0, -0.7, 0.0);
+    model = GLKMatrix4Scale(model, 0.2*abs(self.view.bounds.size.height / self.view.bounds.size.width), 0.2, 0.0);
+    model = GLKMatrix4Rotate(model, M_PI, 0, 1, 0);
+    model = GLKMatrix4Translate(model, -0.5, -0.5, -0.5);
+    [HoldBlock_Shader setMat4:@"model" value:model];
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, Block_texure);
+    glBindVertexArray(game->visibleChunks.HoldBlock.getVAO());
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
     
 - (void) drawSkybox {

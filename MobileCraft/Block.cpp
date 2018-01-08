@@ -210,7 +210,7 @@ Block::Block() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     Quads.clear();
     for(int i = 0; i < sizeof(test1)/sizeof(float); i++) {
-        Quads.push_back(test1[i]);
+        Quads.push_back(test1[i]);/Users/Clapeysron/Desktop/MobileCraft/MobileCraft/shader/HoldBlock.fs/Users/Clapeysron/Desktop/MobileCraft/MobileCraft/shader/HoldBlock.vs
     }
     glBufferData(GL_ARRAY_BUFFER, Quads.size()*sizeof(float), &Quads[0], GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);

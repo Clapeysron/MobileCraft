@@ -51,18 +51,17 @@ void main()
     
     //Chosen and Break
     if (isChosen == 1.3 && broken_texture_x!= 0.0) {
-        float real_broken_texture_x = broken_texture_x + TexCoord.x - float(int(floor(TexCoord.x*10.0))/10);
-        float real_broken_texture_y = TexCoord.y - float(int(floor(TexCoord.y*10.0))/10) + 0.9;
+        float real_broken_texture_x = broken_texture_x + TexCoord.x - floor(TexCoord.x*10.0)/10.0;
+        float real_broken_texture_y = TexCoord.y - floor(TexCoord.y*10.0)/10.0 + 0.9;
         vec4 broken_texture = texture2D(texture_pic, vec2(real_broken_texture_x, real_broken_texture_y));
         if (broken_texture.a>0.05) {
             color = (broken_texture.r+0.1) * 2.0 * color;
         }
     }
-
     
     if (eye_in_water) {
-        float real_water_texture_x = TexCoord.x - float(int(floor(TexCoord.x*10.0))/10) + 0.9;
-        float real_water_texture_y = TexCoord.y - float(int(floor(TexCoord.y*10.0))/10) + 0.1;
+        float real_water_texture_x = TexCoord.x - floor(TexCoord.x*10.0)/10.0 + 0.9;
+        float real_water_texture_y = TexCoord.y - floor(TexCoord.y*10.0)/10.0 + 0.1;
         vec4 water_texture = texture2D(texture_pic, vec2(real_water_texture_x, real_water_texture_y));
         if (TexCoord.x<0.9 || TexCoord.y<0.1 || TexCoord.y>0.3) {
             color = 0.5 * mix(water_texture.rgb, color, 0.6);
@@ -96,8 +95,18 @@ void main()
     } else {
         SkyTexCoords = vec2(DayPos, 0.55);
     }
+    vec4 fogColor;
+    if (eye_in_water) {
+        float real_water_texture_x = TexCoord.x - float(int(floor(TexCoord.x*10.0))/10) + 0.9;
+        float real_water_texture_y = TexCoord.y - float(int(floor(TexCoord.y*10.0))/10) + 0.1;
+        vec4 water_texture = texture2D(texture_pic, vec2(real_water_texture_x, real_water_texture_y));
+        if (TexCoord.x<0.9 || TexCoord.y<0.1 || TexCoord.y>0.3) {
+            fogColor = 0.5 * mix( water_texture.rgba, (1.0-starIntensity) * texture2D(skybox, SkyTexCoords) + starIntensity * vec4(0.0, 0.0, 0.0, 1.0), 0.6);
+        }
+    } else {
+        fogColor = (1.0-starIntensity) * texture2D(skybox, SkyTexCoords) + starIntensity * vec4(0.0, 0.0, 0.0, 1.0);
+    }
     
-    vec4 fogColor = (1.0-starIntensity) * texture2D(skybox, SkyTexCoords) + starIntensity * vec4(0.0, 0.0, 0.0, 1.0);
     
     gl_FragColor = mix( fogColor, vec4(result, alpha), fogFactor);
 }
