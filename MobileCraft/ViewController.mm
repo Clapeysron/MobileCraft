@@ -124,8 +124,10 @@ char placeBlockList[]= {(char)TORCH, COBBLESTONE, MOSSY_COBBLESTONE, STONE_BRICK
         moveFinger = touch;
     } else if ([touch view] == _leftArrow) {
         nowPlaceBlock--;
+        nowPlaceBlock = (nowPlaceBlock<0) ? nowPlaceBlock+(int)sizeof(placeBlockList) : nowPlaceBlock;
     } else if ([touch view] == _rightArrow) {
         nowPlaceBlock++;
+        nowPlaceBlock = (nowPlaceBlock>=(int)sizeof(placeBlockList)) ? nowPlaceBlock-(int)sizeof(placeBlockList) : nowPlaceBlock;
     } else {
         holdTime = [self glGetTime];
         startBreak = true;
@@ -205,14 +207,9 @@ char placeBlockList[]= {(char)TORCH, COBBLESTONE, MOSSY_COBBLESTONE, STONE_BRICK
     cameraRight_XZ.y = 0;
     cameraRight_XZ = GLKVector3Normalize(cameraRight_XZ);
     
-    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(cameraFront_XZ.x, 0.0f, 0.0f);
+    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(cameraFront_XZ.x, 0.0f, 0.0f) + x_v * 6 * deltaTime * glm::vec3(cameraRight_XZ.x, 0.0f, 0.0f);
     game->move(new_position);
-    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraFront_XZ.z);
-    game->move(new_position);
-    
-    new_position = game->steve_position + x_v * 6 * deltaTime * glm::vec3(cameraRight_XZ.x, 0.0f, 0.0f);
-    game->move(new_position);
-    new_position = game->steve_position + x_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraRight_XZ.z);
+    new_position = game->steve_position - y_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraFront_XZ.z) + x_v * 6 * deltaTime * glm::vec3(0.0, 0.0f, cameraRight_XZ.z);
     game->move(new_position);
     steve_position = [self GLKVector3Make:game->steve_position];
 }

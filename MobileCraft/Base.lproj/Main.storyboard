@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,35 +15,67 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CraftViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GLKView">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNq-Fz-o8E">
-                                <rect key="frame" x="56" y="184" width="160" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="KNq-Fz-o8E">
+                                <rect key="frame" x="12" y="598" width="160" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="161" id="Gzo-FB-VQx"/>
+                                    <constraint firstAttribute="width" constant="160" id="RE1-zr-ixp"/>
+                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button.png" translatesAutoresizingMaskIntoConstraints="NO" id="gvm-0W-dqZ">
-                                <rect key="frame" x="103" y="231" width="66" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button.png" translatesAutoresizingMaskIntoConstraints="NO" id="gvm-0W-dqZ">
+                                <rect key="frame" x="59" y="645" width="66" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="HaP-uH-3oi"/>
+                                    <constraint firstAttribute="height" constant="67" id="ju6-MJ-F9O"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SIGHTBEAD.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-w9-OKn">
-                                <rect key="frame" x="392" y="180" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SIGHTBEAD.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-w9-OKn">
+                                <rect key="frame" x="502" y="384" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Neh-Cm-JfM"/>
+                                    <constraint firstAttribute="width" constant="20" id="jLu-AX-IYi"/>
+                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7S-Ux-W7T">
-                                <rect key="frame" x="344" y="296" width="61" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="y7S-Ux-W7T">
+                                <rect key="frame" x="450" y="710" width="61" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="F2H-cr-BJM"/>
+                                    <constraint firstAttribute="width" constant="61" id="MkA-Jd-VqB"/>
+                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-J9-hbx">
-                                <rect key="frame" x="406" y="296" width="62" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-J9-hbx">
+                                <rect key="frame" x="512" y="710" width="62" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="ARQ-Eq-u9F"/>
+                                    <constraint firstAttribute="width" constant="62" id="h31-l4-wvw"/>
+                                </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jump.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-EQ-Pz2">
-                                <rect key="frame" x="691" y="259" width="58" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jump.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-EQ-Pz2">
+                                <rect key="frame" x="947" y="673" width="58" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="RoT-Mr-2lQ"/>
+                                    <constraint firstAttribute="width" constant="58" id="vdI-G9-JEl"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gvm-0W-dqZ" firstAttribute="centerX" secondItem="KNq-Fz-o8E" secondAttribute="centerX" priority="250" id="5U6-Me-hqj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KNq-Fz-o8E" secondAttribute="bottom" constant="9" id="6DU-5s-V8T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7ox-EQ-Pz2" secondAttribute="bottom" constant="38" id="Ewo-g8-VSj"/>
+                            <constraint firstItem="G0V-J9-hbx" firstAttribute="leading" secondItem="5Xv-w9-OKn" secondAttribute="trailing" constant="-10" id="Ipd-tx-RdH"/>
+                            <constraint firstItem="KNq-Fz-o8E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Jd2-b5-935"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y7S-Ux-W7T" secondAttribute="bottom" constant="12" id="KmK-o0-DSi"/>
+                            <constraint firstItem="5Xv-w9-OKn" firstAttribute="leading" secondItem="y7S-Ux-W7T" secondAttribute="trailing" constant="-9" id="M3j-zT-QuQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7ox-EQ-Pz2" secondAttribute="trailing" constant="19" id="Q5D-yE-UuJ"/>
+                            <constraint firstItem="5Xv-w9-OKn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Scb-Sp-ZrX"/>
+                            <constraint firstItem="5Xv-w9-OKn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="jNg-B6-FHU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G0V-J9-hbx" secondAttribute="bottom" constant="12" id="uel-i6-2Sw"/>
+                            <constraint firstItem="gvm-0W-dqZ" firstAttribute="centerY" secondItem="KNq-Fz-o8E" secondAttribute="centerY" priority="250" id="vSG-LU-QRk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
