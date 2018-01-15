@@ -41,7 +41,7 @@ It's a Minecraft clone with lighting effects based on GLKit on iOS use Objective
 
 ### Run
 
-Just click run to get the game started
+Just use the recent XCode and click run to get the game started
 
 ## Game Controls
 
