@@ -241,6 +241,4 @@
 #define CORNER_SHADOW 1.0f
 #define POINT_LIGHT 0.0625f
 
-#define HOLD_TIME 0.15f
-
 #endif /* game_settings_h */

@@ -72,35 +72,25 @@
 		379B0FBF1FE94E8E00140085 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		379B0FCD1FE9591F00140085 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		379B0FCE1FE9591F00140085 /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
-		379B0FD31FEA459F00140085 /* game_settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = game_settings.h; path = ../../Mycraft/Mycraft/src/game_settings.h; sourceTree = "<group>"; };
 		379B0FDE1FEA491200140085 /* GameLink.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLink.mm; sourceTree = "<group>"; };
-		37B75EB81FEC09AE00F29AD7 /* Block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Block.png; path = picture/Block.png; sourceTree = "<group>"; };
+		37B75EB81FEC09AE00F29AD7 /* Block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Block.png; sourceTree = "<group>"; };
+		37B79030200C77FD00E346F0 /* game_settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game_settings.h; sourceTree = "<group>"; };
 		37BA03E21FE97D6600FE4785 /* Block.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Block.fs; sourceTree = "<group>"; };
 		37BA03E31FE97D6600FE4785 /* Skybox.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Skybox.vs; sourceTree = "<group>"; };
-		37BA03E41FE97D6600FE4785 /* Gui.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gui.fs; sourceTree = "<group>"; };
-		37BA03E51FE97D6600FE4785 /* Depth_debug.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth_debug.fs; sourceTree = "<group>"; };
-		37BA03E61FE97D6600FE4785 /* Sunlight.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sunlight.vs; sourceTree = "<group>"; };
-		37BA03E71FE97D6600FE4785 /* Depth.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth.fs; sourceTree = "<group>"; };
-		37BA03E81FE97D6600FE4785 /* Steve.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Steve.vs; sourceTree = "<group>"; };
-		37BA03E91FE97D6600FE4785 /* Sunlight.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Sunlight.fs; sourceTree = "<group>"; };
-		37BA03EA1FE97D6600FE4785 /* Depth.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth.vs; sourceTree = "<group>"; };
-		37BA03EB1FE97D6600FE4785 /* Steve.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Steve.fs; sourceTree = "<group>"; };
 		37BA03EC1FE97D6600FE4785 /* Skybox.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Skybox.fs; sourceTree = "<group>"; };
 		37BA03ED1FE97D6600FE4785 /* Block.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Block.vs; sourceTree = "<group>"; };
-		37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Depth_debug.vs; sourceTree = "<group>"; };
-		37BA03EF1FE97D6600FE4785 /* Gui.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Gui.vs; sourceTree = "<group>"; };
 		37DFDF0B1FEABEE900011B66 /* Game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		37DFDF0C1FEABEE900011B66 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChunkData.cpp; sourceTree = "<group>"; };
 		37DFDF0E1FEABEE900011B66 /* ChunkData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChunkData.hpp; sourceTree = "<group>"; };
 		37DFDF0F1FEABEE900011B66 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		37DFDF101FEABEE900011B66 /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Block.hpp; sourceTree = "<group>"; };
-		37E9C2B72002574F00259F9B /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skybox.png; path = picture/skybox.png; sourceTree = "<group>"; };
-		37E9C2BD2004EBC700259F9B /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = picture/button.png; sourceTree = "<group>"; };
-		37E9C2BF2004EBD000259F9B /* jump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jump.png; path = picture/jump.png; sourceTree = "<group>"; };
-		37E9C2C12004EBD800259F9B /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = picture/line.png; sourceTree = "<group>"; };
-		37E9C2C32004EBDD00259F9B /* SIGHTBEAD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SIGHTBEAD.png; path = picture/SIGHTBEAD.png; sourceTree = "<group>"; };
-		37E9C2C52004EBE200259F9B /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome.png; path = picture/welcome.png; sourceTree = "<group>"; };
+		37E9C2B72002574F00259F9B /* skybox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skybox.png; sourceTree = "<group>"; };
+		37E9C2BD2004EBC700259F9B /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		37E9C2BF2004EBD000259F9B /* jump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump.png; sourceTree = "<group>"; };
+		37E9C2C12004EBD800259F9B /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		37E9C2C32004EBDD00259F9B /* SIGHTBEAD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SIGHTBEAD.png; sourceTree = "<group>"; };
+		37E9C2C52004EBE200259F9B /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +128,13 @@
 		37935D2A1FECF74C00D4E83C /* gui */ = {
 			isa = PBXGroup;
 			children = (
+				37E9C2C12004EBD800259F9B /* line.png */,
+				37E9C2BF2004EBD000259F9B /* jump.png */,
+				37E9C2BD2004EBC700259F9B /* button.png */,
+				37B75EB81FEC09AE00F29AD7 /* Block.png */,
+				37E9C2B72002574F00259F9B /* skybox.png */,
+				37E9C2C52004EBE200259F9B /* welcome.png */,
+				37E9C2C32004EBDD00259F9B /* SIGHTBEAD.png */,
 				37935D2B1FECF74C00D4E83C /* down_arrow.png */,
 				37935D2C1FECF74C00D4E83C /* left_arrow.png */,
 				37935D2D1FECF74C00D4E83C /* right_arrow.png */,
@@ -172,25 +169,18 @@
 				379B0FB31FE94E8D00140085 /* ViewController.h */,
 				379B0FB41FE94E8E00140085 /* ViewController.mm */,
 				379B0FB61FE94E8E00140085 /* Main.storyboard */,
-				37E9C2C12004EBD800259F9B /* line.png */,
-				37E9C2BF2004EBD000259F9B /* jump.png */,
-				37E9C2BD2004EBC700259F9B /* button.png */,
-				37B75EB81FEC09AE00F29AD7 /* Block.png */,
-				37E9C2B72002574F00259F9B /* skybox.png */,
-				37E9C2C52004EBE200259F9B /* welcome.png */,
-				37E9C2C32004EBDD00259F9B /* SIGHTBEAD.png */,
 				37935D2A1FECF74C00D4E83C /* gui */,
 				37935D091FECDE2C00D4E83C /* skybox */,
 				379B0FB91FE94E8E00140085 /* Assets.xcassets */,
 				37DFDF0F1FEABEE900011B66 /* Block.cpp */,
 				37DFDF101FEABEE900011B66 /* Block.hpp */,
+				37B79030200C77FD00E346F0 /* game_settings.h */,
 				37DFDF0D1FEABEE900011B66 /* ChunkData.cpp */,
 				37DFDF0E1FEABEE900011B66 /* ChunkData.hpp */,
 				370C3C1B20011BB600F78D9F /* BlockInfo.cpp */,
 				370C3C1C20011BB600F78D9F /* BlockInfo.hpp */,
 				37DFDF0C1FEABEE900011B66 /* Game.cpp */,
 				37DFDF0B1FEABEE900011B66 /* Game.hpp */,
-				379B0FD31FEA459F00140085 /* game_settings.h */,
 				379B0FBB1FE94E8E00140085 /* LaunchScreen.storyboard */,
 				3708CEA81FEA79AD0084729F /* GameLink.h */,
 				379B0FDE1FEA491200140085 /* GameLink.mm */,
@@ -212,16 +202,6 @@
 				3707F46020036C9900915EA1 /* HoldBlock.vs */,
 				37BA03EC1FE97D6600FE4785 /* Skybox.fs */,
 				37BA03E31FE97D6600FE4785 /* Skybox.vs */,
-				37BA03E61FE97D6600FE4785 /* Sunlight.vs */,
-				37BA03E91FE97D6600FE4785 /* Sunlight.fs */,
-				37BA03E71FE97D6600FE4785 /* Depth.fs */,
-				37BA03EA1FE97D6600FE4785 /* Depth.vs */,
-				37BA03E81FE97D6600FE4785 /* Steve.vs */,
-				37BA03EB1FE97D6600FE4785 /* Steve.fs */,
-				37BA03E51FE97D6600FE4785 /* Depth_debug.fs */,
-				37BA03EE1FE97D6600FE4785 /* Depth_debug.vs */,
-				37BA03E41FE97D6600FE4785 /* Gui.fs */,
-				37BA03EF1FE97D6600FE4785 /* Gui.vs */,
 			);
 			path = shader;
 			sourceTree = "<group>";
