@@ -1,3 +1,4 @@
 /MobileCraft/library/* linguist-vendored
 /MobileCraft/Data/* linguist-vendored
+/MobileCraft/*.mm linguist-language=Objective-C
 /MobileCraft/shader/*.vs linguist-language=GLSL
