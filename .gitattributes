@@ -1,2 +1,3 @@
 /MobileCraft/library/* linguist-vendored
 /MobileCraft/Data/* linguist-vendored
+/MobileCraft/shader/*.vs linguist-language=GLSL
